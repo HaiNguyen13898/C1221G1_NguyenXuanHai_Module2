@@ -40,8 +40,38 @@ public class Main {
                     System.out.println("Ten");
                     break;
             }
-//        } else if ( number > 10 ) {
-
+        } else if ( number > 10 && number < 20 ) {
+            switch (number) {
+                case 11:
+                    System.out.println("Eleven");
+                    break;
+                case 12:
+                    System.out.println("Twelve");
+                    break;
+                case 13:
+                    System.out.println("Thrteen");
+                    break;
+                case 14:
+                    System.out.println("Fourteen");
+                    break;
+                case 15:
+                    System.out.println("Fifteen");
+                    break;
+                case 16:
+                    System.out.println("Sixteen");
+                    break;
+                case 17:
+                    System.out.println("Seventeen");
+                    break;
+                case 18:
+                    System.out.println("Eighteen");
+                    break;
+                case 19:
+                    System.out.println("Nineteen");
+                    break;
+            }
+        }else {
+            System.out.println(" không xác định");
         }
     }
 }
