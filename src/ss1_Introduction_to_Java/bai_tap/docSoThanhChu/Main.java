@@ -40,7 +40,7 @@ public class Main {
                     System.out.println("Ten");
                     break;
             }
-        } else if ( number > 10 ) {
+//        } else if ( number > 10 ) {
 
         }
     }
