@@ -71,7 +71,7 @@ public class Main {
                     break;
             }
         }else {
-            System.out.println(" không xác định");
+            System.out.println(" Không xác định ");
         }
     }
 }
