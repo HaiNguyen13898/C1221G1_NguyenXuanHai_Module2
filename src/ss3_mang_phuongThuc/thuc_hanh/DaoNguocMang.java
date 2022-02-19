@@ -25,9 +25,9 @@ public class DaoNguocMang {
             System.out.print(array[j] + "\t");
         }
         for (int j = 0; j < array.length / 2; j++) {
-            int temp = array[j];
-            array[j] = array[size - 1 - j];
-            array[size - 1 - j] = temp;
+            int temp = array[j]; // gán giá trị cho temp
+            array[j] = array[size - 1 - j]; // tính vị trí của mảng
+            array[size - 1 - j] = temp; // vị trí mới ở dòng 29 có giá trị mới ở dòng 28
         }
         System.out.printf("\n%-20s%s", "Reverse array: ", "");
         for (int j = 0; j < array.length; j++) {

@@ -1,6 +1,5 @@
 package ss3_mang_phuongThuc.thuc_hanh;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class TimGiaTriMang {
