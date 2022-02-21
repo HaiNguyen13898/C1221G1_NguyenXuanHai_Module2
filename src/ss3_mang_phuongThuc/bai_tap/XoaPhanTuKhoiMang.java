@@ -21,7 +21,7 @@ public class XoaPhanTuKhoiMang {
         System.out.println("Nhập phần tử cần xoá khỏi mảng ");
         int x = input.nextInt();
 
-        for (int j = 0; j < array.length; j++) {
+        for (int j = 0; j < array.length; j++ ) {
             if (array[j] == x) {
                 for (int k = j; k < array.length - 1; k++) {
                     array[k] = array[k + 1];
