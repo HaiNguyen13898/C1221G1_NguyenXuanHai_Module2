@@ -1,8 +1,9 @@
 package ss3_mang_phuongThuc.bai_tap;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Gopmang {
+public class GopMang {
     public static void main(String[] args) {
         int arr1[] = new int[4];
         int arr2[] = new int[3];
@@ -27,11 +28,11 @@ public class Gopmang {
         System.out.print("\n");
 
         int j = 0;
-        for(int element : arr1){
+        for (int element : arr1) {
             arr3[j] = element;
             j++;
         }
-        for(int element : arr2){
+        for (int element : arr2) {
             arr3[j] = element;
             j++;
         }

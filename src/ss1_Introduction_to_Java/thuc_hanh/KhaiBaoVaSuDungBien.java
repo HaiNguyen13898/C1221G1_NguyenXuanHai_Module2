@@ -1,6 +1,6 @@
-package ss1_Introduction_to_Java.thuc_hanh.khaiBaoVaSuDungBien;
+package ss1_Introduction_to_Java.thuc_hanh;
 
-public class Main {
+public class KhaiBaoVaSuDungBien {
     public static void main(String[] args) {
         int i = 10;
         float f = 20.5f;

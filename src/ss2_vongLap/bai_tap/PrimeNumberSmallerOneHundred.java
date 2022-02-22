@@ -2,7 +2,7 @@ package ss2_vongLap.bai_tap;
 
 import java.util.Scanner;
 
-public class PrimeNumber {
+public class PrimeNumberSmallerOneHundred {
     public static void main(String[] args) {
         System.out.println(" Nhập số lượng số nguyên tố muốn in:  ");
         Scanner scanner = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class PrimeNumber {
                     break;
                 }
             }
-            if (check) {
+            if (check && n < 100 ) {
                 System.out.print(n + "\t");
                 count++;
             }
@@ -26,4 +26,3 @@ public class PrimeNumber {
 
     }
 }
-

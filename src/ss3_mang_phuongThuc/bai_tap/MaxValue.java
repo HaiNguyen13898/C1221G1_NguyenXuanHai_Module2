@@ -2,7 +2,7 @@ package ss3_mang_phuongThuc.bai_tap;
 
 import java.util.Scanner;
 
-public class PhantulonnhatMangHaiChieu {
+public class MaxValue {
     public static void main(String[] args) {
         int m, n;
         Scanner scanner = new Scanner(System.in);

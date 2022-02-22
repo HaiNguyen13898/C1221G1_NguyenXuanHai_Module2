@@ -1,8 +1,8 @@
-package ss1_Introduction_to_Java.thuc_hanh.weight;
+package ss1_Introduction_to_Java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class Main {
+public class Weight {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double weight, height, bmi;

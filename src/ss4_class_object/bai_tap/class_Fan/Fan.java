@@ -12,15 +12,15 @@ public class Fan {
     public Fan() {
     }
 
-    public Fan(int speed, boolean on, double radius, String color) {
-        this.speed = speed;
-        this.on = on;
-        this.radius = radius;
-        this.color = color;
-    }
+//    public Fan(int speed, boolean on, double radius, String color) {
+//        this.speed = speed;
+//        this.on = on;
+//        this.radius = radius;
+//        this.color = color;
+//    }
 
 
-    public int getSpeed() {
+    public int getSpeed(int i) {
         return speed;
     }
 
@@ -54,16 +54,16 @@ public class Fan {
 
     @Override
     public String toString() {
-        if (this.isOn()) {
-            return "Fan is on" +
-                    "color" + this.color  +
-                    "speed" + this.speed +
-                    "radius" + this.radius;
+        if (!this.isOn()) {
+            return "Fan is on, " +
+                    "speed " + this.speed + ", " +
+                    "Color is" + this.color + ", " +
+                    "Radius is " + this.radius;
 
         } else  {
-            return "Fan is off" +
-                    "Color is" + this.color +
-                    "Radius is" + this.radius;
+            return "Fan is off, " +
+                    "color " + this.color + ", " +
+                    "radius " + this.radius ;
         }
     }
 }

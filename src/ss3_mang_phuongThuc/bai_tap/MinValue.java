@@ -3,7 +3,7 @@ package ss3_mang_phuongThuc.bai_tap;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class TimGiaTriNhoNhat {
+public class MinValue {
     public static void main(String[] args) {
         int size;
         int[] array;

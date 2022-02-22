@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class Stopwatch {
     private long startTime, endTime;
-    public Stopwatch () {
+
+    public Stopwatch() {
         this.startTime = new Date().getTime();
     }
 
@@ -24,12 +25,14 @@ public class Stopwatch {
         this.endTime = endTime;
     }
 
-    public void start () {
+    public void start() {
         startTime = new Date().getTime();
     }
-    public void stop () {
+
+    public void stop() {
         endTime = new Date().getTime();
     }
+
     public long getElapsedTime() {
         return this.endTime - this.startTime;
     }

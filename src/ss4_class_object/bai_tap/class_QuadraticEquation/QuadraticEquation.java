@@ -3,8 +3,7 @@ package ss4_class_object.bai_tap.class_QuadraticEquation;
 public class QuadraticEquation {
     private double a, b, c;
 
-    public QuadraticEquation(){
-    }
+
 
     public QuadraticEquation(double a, double b, double c) {
         this.a = a;
@@ -49,7 +48,7 @@ public class QuadraticEquation {
 
     @Override
     public String toString() {
-        return "QuadraticEquation{" +
+        return "QuadraticEquation {" +
                 "a=" + a +
                 ", b=" + b +
                 ", c=" + c +
