@@ -1,8 +1,8 @@
 package ss6_inheritance.bai_tap.point2d_point3d;
 
 public class Point2d {
-    float x = 0.0f;
-    float y = 0.0f;
+    float x ;
+    float y ;
 
     public Point2d() {
     }
@@ -46,4 +46,5 @@ public class Point2d {
                 ", y=" + y +
                 '}';
     }
+
 }

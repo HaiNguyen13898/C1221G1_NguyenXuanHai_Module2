@@ -1,8 +1,8 @@
 package ss6_inheritance.bai_tap.point_movablePoint;
 
 public class MovablePoint extends Point {
-   float xSpeed;
-   float ySpeed;
+   private float xSpeed;
+   private float ySpeed;
 
     public MovablePoint() {
     }
@@ -39,9 +39,22 @@ public class MovablePoint extends Point {
         this.ySpeed = ySpeed;
     }
 
-//    public float [] getSpeed () {
-//        float
-//    }
+    public float [] getSpeed () {
+        float [] arr = {xSpeed, ySpeed};
+        return arr;
+    }
 
+    @Override
+    public String toString() {
+        return "MovablePoint {" +
+                "xSpeed=" + xSpeed +
+                ", ySpeed=" + ySpeed +
+                "} " + super.toString();
+    }
+    public MovablePoint move () {
+        super.setX(this.getX() + this.getxSpeed());
+        super.setY(this.getY() + this.getySpeed());
+        return  this;
+    }
 
 }
