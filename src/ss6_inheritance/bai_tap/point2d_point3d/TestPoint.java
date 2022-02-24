@@ -7,5 +7,6 @@ public class TestPoint {
 
         System.out.println(point2d);
         System.out.println(point3d);
+
     }
 }
