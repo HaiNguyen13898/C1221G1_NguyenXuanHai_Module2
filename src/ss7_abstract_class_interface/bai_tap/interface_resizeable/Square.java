@@ -1,6 +1,8 @@
-package ss6_inheritance.thuc_hanh;
+package ss7_abstract_class_interface.bai_tap.interface_resizeable;
 
-public class Square extends Rectangle {
+import ss6_inheritance.thuc_hanh.Rectangle;
+
+public class Square extends Rectangle implements Resizeable {
 
     public Square() {
     }
@@ -35,7 +37,13 @@ public class Square extends Rectangle {
     @Override
     public String toString() {
         return "A Square with side="
-                + getSide() ;
+                + getSide()
+                ;
     }
 
+
+    @Override
+    public double resize(double percent) {
+        return percent * super.getArea() + this.getArea() ;
+    }
 }
