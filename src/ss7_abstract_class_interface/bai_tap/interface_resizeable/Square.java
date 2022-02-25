@@ -1,49 +1,45 @@
 package ss7_abstract_class_interface.bai_tap.interface_resizeable;
 
-import ss6_inheritance.thuc_hanh.Rectangle;
 
-public class Square extends Rectangle implements Resizeable {
+
+public class Square extends Shape  implements Resizeable {
+    private double side;
 
     public Square() {
     }
 
+
     public Square(double side) {
-        super(side, side);
+        this.side = side;
     }
 
-    public Square(String color, boolean filled, double side ) {
-        super( color, filled, side, side);
+    public Square(String color, Boolean filled, double side) {
+        super(color, filled);
+        this.side = side;
     }
 
     public double getSide() {
-        return getWidth();
+        return side;
     }
 
     public void setSide(double side) {
-        setWidth(side);
-        setLength(side);
+        this.side = side;
     }
 
-    @Override
-    public void setWidth(double width) {
-        setSide(width);
-    }
-
-    @Override
-    public void setLength(double length) {
-        setSide(length);
+    public double getArea () {
+        return this.getSide() * this.getSide();
     }
 
     @Override
     public String toString() {
-        return "A Square with side="
-                + getSide()
-                ;
+        return "A Square with side: " +
+                getSide() +
+                ", which is a area" +
+                getArea();
     }
 
-
     @Override
-    public double resize(double percent) {
-        return percent * super.getArea() + this.getArea() ;
+    public void resize(double percent) {
+         setSide(getSide() * percent + getSide());
     }
 }

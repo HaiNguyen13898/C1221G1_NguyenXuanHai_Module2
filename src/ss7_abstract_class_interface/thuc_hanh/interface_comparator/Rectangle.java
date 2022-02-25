@@ -1,12 +1,16 @@
-package ss7_abstract_class_interface.bai_tap.interface_colorable;
+package ss7_abstract_class_interface.thuc_hanh.interface_comparator;
 
-public class Rectangle extends Shape implements Colorable  {
+public class Rectangle extends Shape {
     private double width = 1.0;
     private double length = 1.0;
 
     public Rectangle() {
     }
 
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this.length = length;
+    }
 
     public Rectangle(double width, double length, String color, boolean filled) {
         super(color, filled);
@@ -46,11 +50,5 @@ public class Rectangle extends Shape implements Colorable  {
                 + getLength()
                 + ", which is a subclass of "
                 + super.toString();
-    }
-
-
-    @Override
-    public void howToColor() {
-        System.out.println("Tô đầy đủ các cạnh vào");
     }
 }

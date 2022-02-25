@@ -1,6 +1,6 @@
-package ss7_abstract_class_interface.bai_tap.interface_colorable;
+package ss7_abstract_class_interface.thuc_hanh.interface_comparator;
 
-public abstract class Shape  {
+public class Shape {
     private String color = "green";
     private boolean filled = true;
 
@@ -35,5 +35,4 @@ public abstract class Shape  {
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
     }
-
 }

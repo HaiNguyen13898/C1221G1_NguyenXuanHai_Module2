@@ -1,6 +1,6 @@
-package ss7_abstract_class_interface.bai_tap.interface_colorable;
+package ss7_abstract_class_interface.thuc_hanh.interface_comparator;
 
-public class Circle extends  Shape implements Colorable {
+public class Circle extends  Shape {
     private double radius = 1.0;
 
     public Circle() {
@@ -37,11 +37,5 @@ public class Circle extends  Shape implements Colorable {
                 + getRadius()
                 + ", which is a subclass of "
                 + super.toString();
-    }
-
-
-    @Override
-    public void howToColor() {
-        System.out.println("Tô hết");
     }
 }

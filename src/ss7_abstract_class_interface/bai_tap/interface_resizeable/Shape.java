@@ -1,6 +1,6 @@
 package ss7_abstract_class_interface.bai_tap.interface_resizeable;
 
-public class Shape {
+public abstract class Shape  {
     private String color = "green";
     private Boolean filled = true;
 
@@ -34,5 +34,6 @@ public class Shape {
                 "and " +
                 (getFilled() ? "filled" : "not filled")   ;
     }
+
 
 }
