@@ -6,29 +6,27 @@ public class Test {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Vehicle[] vehicles = new Vehicle[20];
-        int choice;
-        int number;
+        int choice ;
+        int number = 0;
+        Vehicle[] vehicles = null;
         boolean flag = true;
         do {
             System.out.println("----------MENU----------");
             System.out.println("Nhập số 1 để tạo các đối tượng xe và nhập thông tin \n" +
                     "Nhập số 2 để xuất bảng kê khai tiền thuế của các xe.\n" +
                     "Nhập số khác để thoát");
-            System.out.println(" Nhập số lượng xe cần điền thông tin: ");
-            number = sc.nextInt();
             System.out.print("Nhập lựa chọn trên menu của bạn: ");
             choice = sc.nextInt();
+
             switch (choice) {
                 case 1:
+                    System.out.print("Nhập số lượng xe cần điền thông tin: ");
+                    number = sc.nextInt();
+                    vehicles = new Vehicle[number];
                     for (int i = 0; i < number ; i++) {
-                        if ( vehicles[i] == null) {
-                            System.out.println("Xe thứ " + (i + 1));
-                            vehicles[i] = new Vehicle();
-                            nhapXe(vehicles[i]);
-                        } else {
-                            break;
-                        }
+                        System.out.println("Xe thứ " + (i+1));
+                        vehicles[i] = new Vehicle();
+                        nhapXe(vehicles[i]);
                     }
                     break;
                 case 2:
@@ -37,7 +35,7 @@ public class Test {
                     }
                     break;
                 default:
-                    System.out.println("bye");
+                    System.out.println("Hẹn gặp lại");
                     flag = false;
                     break;
             }

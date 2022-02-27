@@ -100,8 +100,8 @@ public class Vehicle {
         return thue;
     }
 
-     public void hienThiThue() {
-        System.out.println("Thuế xe của bạn là: " + tinhThue());
+    public void hienThiThue() {
+        System.out.println("Thuế xe của bạn là: " + tinhThue() );
     }
 
     @Override
@@ -114,7 +114,7 @@ public class Vehicle {
                 ", dungTich=" + dungTich +
                 ", canNang=" + canNang +
                 ", tocDo=" + tocDo +
-                ", triGia=" + triGia +
+                ", triGia=" + triGia + ", thuế= " + tinhThue()+
                 '}';
     }
 }
