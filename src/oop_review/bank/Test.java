@@ -44,6 +44,7 @@ public class Test {
                     for (int i = 0; i < number; i++) {
                         accounts[i].putMoney();
                     }
+                    break;
                 case 3:
                     for (int i = 0; i < number; i++) {
                         accounts[i].takeMoney();

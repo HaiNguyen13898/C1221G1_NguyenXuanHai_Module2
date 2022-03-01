@@ -62,7 +62,7 @@ public class Account {
         System.out.println("Nhập số tiền bạn cần rút (Không có tiền thì đừng rút)");
         rutTien = scanner.nextDouble();
         if (rutTien <= (moneyInBank + phiRutTien)) {
-            moneyInBank -= (phiRutTien + rutTien);
+            moneyInBank = moneyInBank -  (phiRutTien + rutTien);
             System.out.println("Bạn vừa rút " + rutTien + " trong tài khoản của bạn");
             System.out.println("Số dư tài khoản còn lại của bạn: " + moneyInBank);
         } else {
@@ -75,6 +75,7 @@ public class Account {
         double interestRate = 0.035;
         moneyInBank += moneyInBank * interestRate;
         System.out.println("Tài khoản của bạn đã tự động đáo hạn");
+        System.out.println("Số dư hiện tại của bạn: " + moneyInBank);
         return moneyInBank;
     }
 
