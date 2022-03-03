@@ -1,21 +1,18 @@
 package ss12_java_collection_framework.bai_tap;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
 
-public class Product implements Comparable<Product>, Comparator<Product> {
+import java.util.Comparator;
+
+public class Product implements Comparable <Product>{
     private int id;
     private String nameProduct;
-    private double priceProdcut;
+    private int priceProdcut;
 
-    ArrayList <String> addProduct = new ArrayList();
-    Scanner scanner = new Scanner(System.in);
 
     public Product() {
     }
 
-    public Product(int id, String nameProduct, double priceProdcut) {
+    public Product(int id, String nameProduct, int priceProdcut) {
         this.id = id;
         this.nameProduct = nameProduct;
         this.priceProdcut = priceProdcut;
@@ -37,14 +34,13 @@ public class Product implements Comparable<Product>, Comparator<Product> {
         this.nameProduct = nameProduct;
     }
 
-    public double getPriceProdcut() {
+    public int getPriceProdcut() {
         return priceProdcut;
     }
 
-    public void setPriceProdcut(double priceProdcut) {
+    public void setPriceProdcut(int priceProdcut) {
         this.priceProdcut = priceProdcut;
     }
-
 
 
     @Override
@@ -56,28 +52,9 @@ public class Product implements Comparable<Product>, Comparator<Product> {
                 '}';
     }
 
-
     @Override
     public int compareTo(Product o) {
-        if (this.priceProdcut > o.getPriceProdcut()) {
-            return 1;
-        } else if (this.priceProdcut < o.getPriceProdcut()) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return this.getPriceProdcut() - o.getPriceProdcut();
     }
 
-    @Override
-    public int compare(Product o1, Product o2) {
-        if (o1.priceProdcut > o2.getPriceProdcut()) {
-            return -1;
-        } else if (o1.priceProdcut <o2.getPriceProdcut()) {
-            return 1;
-        } else {
-            return 0;
-
-        }
-
-    }
 }

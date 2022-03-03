@@ -1,29 +1,27 @@
 package vehicle;
 
 public abstract class  Vehicle {
-    private  String bienSo;
+    private  String licensePlates;
     private  String hangXe;
     private  int namSanXuat;
     private  String tenChuXe;
-
-
 
     public Vehicle() {
     }
 
     public Vehicle(String bienSo, String hangXe, int namSanXuat, String tenChuXe) {
-        this.bienSo = bienSo;
+        this.licensePlates = bienSo;
         this.hangXe = hangXe;
         this.namSanXuat = namSanXuat;
         this.tenChuXe = tenChuXe;
     }
 
-    public String getBienSo() {
-        return bienSo;
+    public String getLicensePlates() {
+        return licensePlates;
     }
 
-    public void setBienSo(String bienSo) {
-        this.bienSo = bienSo;
+    public void setLicensePlates(String licensePlates) {
+        this.licensePlates = licensePlates;
     }
 
     public String getHangXe() {
