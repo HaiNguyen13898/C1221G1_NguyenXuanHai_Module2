@@ -18,7 +18,6 @@ public class ProductManager implements InterfaceProduct {
         int price = Integer.parseInt(scanner.nextLine());
         Product addProduct = new Product(id, name, price);
         productArrayList.add(addProduct);
-
     }
 
     @Override

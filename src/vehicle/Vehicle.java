@@ -1,19 +1,19 @@
 package vehicle;
 
-public abstract class  Vehicle {
+public  class  Vehicle {
     private  String licensePlates;
-    private  String hangXe;
-    private  int namSanXuat;
-    private  String tenChuXe;
+    private  String automakers;
+    private  int yearOfManufacture;
+    private  String ownerCar;
 
     public Vehicle() {
     }
 
-    public Vehicle(String bienSo, String hangXe, int namSanXuat, String tenChuXe) {
-        this.licensePlates = bienSo;
-        this.hangXe = hangXe;
-        this.namSanXuat = namSanXuat;
-        this.tenChuXe = tenChuXe;
+    public Vehicle(String licensePlates, String automakers, int yearOfManufacture, String ownerCar) {
+        this.licensePlates = licensePlates;
+        this.automakers = automakers;
+        this.yearOfManufacture = yearOfManufacture;
+        this.ownerCar = ownerCar;
     }
 
     public String getLicensePlates() {
@@ -24,30 +24,37 @@ public abstract class  Vehicle {
         this.licensePlates = licensePlates;
     }
 
-    public String getHangXe() {
-        return hangXe;
+    public String getAutomakers() {
+        return automakers;
     }
 
-    public void setHangXe(String hangXe) {
-        this.hangXe = hangXe;
+    public void setAutomakers(String automakers) {
+        this.automakers = automakers;
     }
 
-    public int getNamSanXuat() {
-        return namSanXuat;
+    public int getYearOfManufacture() {
+        return yearOfManufacture;
     }
 
-    public void setNamSanXuat(int namSanXuat) {
-        this.namSanXuat = namSanXuat;
+    public void setYearOfManufacture(int yearOfManufacture) {
+        this.yearOfManufacture = yearOfManufacture;
     }
 
-    public String getTenChuXe() {
-        return tenChuXe;
+    public String getOwnerCar() {
+        return ownerCar;
     }
 
-    public void setTenChuXe(String tenChuXe) {
-        this.tenChuXe = tenChuXe;
+    public void setOwnerCar(String ownerCar) {
+        this.ownerCar = ownerCar;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "licensePlates='" + licensePlates + '\'' +
+                ", automakers='" + automakers + '\'' +
+                ", yearOfManufacture=" + yearOfManufacture +
+                ", ownerCar='" + ownerCar + '\'' +
+                '}';
+    }
 }
