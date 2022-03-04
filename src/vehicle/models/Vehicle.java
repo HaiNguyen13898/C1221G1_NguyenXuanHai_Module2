@@ -1,4 +1,4 @@
-package vehicle;
+package vehicle.models;
 
 public  class  Vehicle {
     private  String licensePlates;

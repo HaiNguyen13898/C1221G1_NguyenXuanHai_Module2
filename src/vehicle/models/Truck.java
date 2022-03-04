@@ -1,6 +1,6 @@
-package vehicle;
+package vehicle.models;
 
-public class Truck extends Vehicle  {
+public class Truck extends Vehicle {
     private double vehicleLoad;
 
     public Truck() {
@@ -19,5 +19,10 @@ public class Truck extends Vehicle  {
         this.vehicleLoad = vehicleLoad;
     }
 
-
+    @Override
+    public String toString() {
+        return "Truck{" +
+                "vehicleLoad=" + vehicleLoad +
+                "} " + super.toString();
+    }
 }

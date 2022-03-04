@@ -1,6 +1,6 @@
-package vehicle;
+package vehicle.models;
 
-public class Motorbike extends  Vehicle {
+public class Motorbike extends Vehicle {
     private int power;
 
 
@@ -20,4 +20,10 @@ public class Motorbike extends  Vehicle {
         this.power = power;
     }
 
+    @Override
+    public String toString() {
+        return "Motorbike{" +
+                "power=" + power +
+                "} " + super.toString();
+    }
 }

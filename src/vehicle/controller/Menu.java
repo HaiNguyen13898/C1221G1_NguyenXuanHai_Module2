@@ -1,24 +1,28 @@
-package vehicle;
+package vehicle.controller;
+
+import vehicle.services.CarServicesImpl;
+import vehicle.services.MotobikeServicesImpl;
+import vehicle.services.TruckServicesImpl;
 
 import java.util.Scanner;
 
-public class Test {
-    static Scanner scanner = new Scanner(System.in);
+public class Menu {
+    public static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public void displayMenu () {
         int choice, choice1, choice2, choice3;
 
+        MotobikeServicesImpl motobikeManager = new MotobikeServicesImpl();
+        CarServicesImpl carManager = new CarServicesImpl();
+        TruckServicesImpl truckManager = new TruckServicesImpl();
 
-        MotobikeManager motobikeManager = new MotobikeManager();
-        CarManager carManager = new CarManager();
-        TruckManager truckManager = new TruckManager();
         boolean flag = true;
         do {
             System.out.println("--------Menu--------");
             System.out.print("Chọn 1 để nhập thông tin phương tiện\n" +
                     "Chon 2 để hiện thị phương tiện\n" +
                     "Chọn 3 để xoá phương tiện\n" +
-                    "Chọn 4 để thoát\n"+
+                    "Chọn 4 để thoát\n" +
                     "Vui lòng nhập lựa chọn của bạn: ");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -30,13 +34,13 @@ public class Test {
                     choice1 = Integer.parseInt(scanner.nextLine());
                     switch (choice1) {
                         case 1:
-                            truckManager.addTruck();
+                            truckManager.add();
                             break;
                         case 2:
-                            carManager.addCar();
+                            carManager.add();
                             break;
                         case 3:
-                            motobikeManager.addMotobike();
+                            motobikeManager.add();
                             break;
                     }
                     break;
@@ -48,13 +52,13 @@ public class Test {
                     choice2 = Integer.parseInt(scanner.nextLine());
                     switch (choice2) {
                         case 1:
-                            truckManager.displayTruck();
+                            truckManager.display();
                             break;
                         case 2:
-                            carManager.displayCar();
+                            carManager.display();
                             break;
                         case 3:
-                            motobikeManager.displayMotobike();
+                            motobikeManager.display();
                             break;
                     }
                     break;
@@ -64,15 +68,15 @@ public class Test {
                             "Chọn 3 để xoá xe máy\n" +
                             "Vui lòng nhập lựa chọn của bạn: ");
                     choice3 = Integer.parseInt(scanner.nextLine());
-                    switch (choice3){
+                    switch (choice3) {
                         case 1:
-                            truckManager.removeTruck();
+                            truckManager.remove();
                             break;
                         case 2:
-                            carManager.removeCar();
+                            carManager.remove();
                             break;
                         case 3:
-                            motobikeManager.removeMotobike();
+                            motobikeManager.remove();
                             break;
                     }
                     break;
@@ -83,5 +87,9 @@ public class Test {
                     break;
             }
         } while (flag);
+
     }
+
 }
+
+

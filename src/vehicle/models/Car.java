@@ -1,6 +1,6 @@
-package vehicle;
+package vehicle.models;
 
-public class Car extends  Vehicle  {
+public class Car extends Vehicle {
     private int numberSeat;
     private String vehicleType;
 
@@ -29,5 +29,11 @@ public class Car extends  Vehicle  {
         this.vehicleType = vehicleType;
     }
 
-
+    @Override
+    public String toString() {
+        return "Car{" +
+                "numberSeat=" + numberSeat +
+                ", vehicleType='" + vehicleType + '\'' +
+                "} " + super.toString();
+    }
 }

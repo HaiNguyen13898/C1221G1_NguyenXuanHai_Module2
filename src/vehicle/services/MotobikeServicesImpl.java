@@ -1,14 +1,16 @@
-package vehicle;
+package vehicle.services;
+
+import vehicle.models.Motorbike;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MotobikeManager implements FunctionMotobike{
+public class MotobikeServicesImpl implements Services {
     ArrayList <Motorbike> motorbikeArrayList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void addMotobike() {
+    public void add() {
         System.out.print("Nhập biển số xe: ");
         String licensePlate = scanner.nextLine();
         System.out.println("Hãng sản xuất: ");
@@ -24,16 +26,16 @@ public class MotobikeManager implements FunctionMotobike{
     }
 
     @Override
-    public void displayMotobike() {
+    public void display() {
         for (Motorbike moto : motorbikeArrayList) {
             System.out.println(moto);
         }
     }
 
     @Override
-    public void removeMotobike() {
+    public void remove() {
         System.out.println("-----Danh sách xe ban đầu------");
-        displayMotobike();
+        display();
         System.out.println("Nhập biển số xe cần xoá: ");
         String removeMoto = scanner.nextLine();
         for (int i = 0; i < motorbikeArrayList.size(); i++) {
@@ -42,6 +44,6 @@ public class MotobikeManager implements FunctionMotobike{
             }
         }
         System.out.println("-----Danh sách sau khi được xoá------");
-        displayMotobike();
+        display();
     }
 }
