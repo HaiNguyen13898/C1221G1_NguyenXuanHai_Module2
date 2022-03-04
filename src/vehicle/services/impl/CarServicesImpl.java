@@ -1,11 +1,13 @@
-package vehicle.services;
+package vehicle.services.impl;
 
-import vehicle.models.Truck;
+import vehicle.models.Car;
+import vehicle.services.Services;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TruckServicesImpl implements Services {
-    ArrayList<Truck> truckArrayList = new ArrayList<>();
+public class CarServicesImpl implements Services {
+    ArrayList<Car> carArrayList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
     @Override
@@ -18,18 +20,19 @@ public class TruckServicesImpl implements Services {
         int yearOfManufacture = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên chủ xe: ");
         String ownerCar = scanner.nextLine();
-        System.out.println("Nhập trọng tải của xe: ");
-        double vehiclesLoad = Integer.parseInt(scanner.nextLine());
-        Truck trucks = new Truck(licensePlate, automaker, yearOfManufacture, ownerCar, vehiclesLoad);
-        truckArrayList.add(trucks);
+        System.out.print("Nhập số ghế: ");
+        int numberSeats = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập kiểu xe: ");
+        String carTypes = scanner.nextLine();
+        Car cars = new Car(licensePlate, automaker, yearOfManufacture, ownerCar, numberSeats, carTypes);
+        carArrayList.add(cars);
     }
 
     @Override
     public void display() {
-        for (Truck tr : truckArrayList) {
-            System.out.println(tr);
+        for (Car cars : carArrayList) {
+            System.out.println(cars);
         }
-
     }
 
     @Override
@@ -38,9 +41,9 @@ public class TruckServicesImpl implements Services {
         display();
         System.out.println("Nhập biển số xe cần xoá: ");
         String removeMoto = scanner.nextLine();
-        for (int i = 0; i < truckArrayList.size(); i++) {
-            if (truckArrayList.get(i).getLicensePlates().equals(removeMoto)){
-                truckArrayList.remove(truckArrayList.get(i));
+        for (int i = 0; i < carArrayList.size(); i++) {
+            if (carArrayList.get(i).getLicensePlates().equals(removeMoto)){
+                carArrayList.remove(carArrayList.get(i));
             }
         }
         System.out.println("-----Danh sách sau khi được xoá------");

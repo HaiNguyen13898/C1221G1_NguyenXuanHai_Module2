@@ -1,6 +1,6 @@
 package vehicle.models;
 
-public  class  Vehicle {
+public class  Vehicle {
     private  String licensePlates;
     private  String automakers;
     private  int yearOfManufacture;
@@ -47,6 +47,7 @@ public  class  Vehicle {
     public void setOwnerCar(String ownerCar) {
         this.ownerCar = ownerCar;
     }
+
 
     @Override
     public String toString() {

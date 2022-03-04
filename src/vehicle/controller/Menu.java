@@ -1,12 +1,12 @@
 package vehicle.controller;
 
-import vehicle.services.CarServicesImpl;
-import vehicle.services.MotobikeServicesImpl;
-import vehicle.services.TruckServicesImpl;
-
+import vehicle.services.impl.CarServicesImpl;
+import vehicle.services.impl.MotobikeServicesImpl;
+import vehicle.services.impl.TruckServicesImpl;
 import java.util.Scanner;
 
 public class Menu {
+
     public static Scanner scanner = new Scanner(System.in);
 
     public void displayMenu () {

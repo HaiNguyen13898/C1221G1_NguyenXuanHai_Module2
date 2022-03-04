@@ -30,16 +30,22 @@ public class ProductManager implements InterfaceProduct {
         for (int i = 0; i < productArrayList.size(); i++) {
 
             if (productArrayList.get(i).getId() == editProduct) {
+                System.out.print("Nhập 1 để sửa giá sản phẩm\n" +
+                        "Nhập 2 để sửa tên sản phẩm\n" +
+                        "Nhập lựa chọn của bạn: ");
+                int chocie = 0;
+                switch (chocie){
+                    case 1:
+                        int editPrice = Integer.parseInt(scanner.nextLine());
+                        productArrayList.get(i).setPriceProdcut(editPrice);
+                        break;
+                    case 2:
+                        String editName = String.valueOf(scanner.nextLine());
+                        productArrayList.get(i).setNameProduct(editName);
+                        break;
+                }
+            } break;
 
-                System.out.println("Sửa giá sản phẩm: ");
-                int editPrice = Integer.parseInt(scanner.nextLine());
-                productArrayList.get(i).setPriceProdcut(editPrice);
-
-                System.out.println("Sửa tên sản phẩm: ");
-                String editName = String.valueOf(scanner.nextLine());
-                productArrayList.get(i).setNameProduct(editName);
-                check = false;
-            }
         }
         if (!check) {
             System.out.println("Không có sản phầm nào cần sửa");
@@ -79,7 +85,7 @@ public class ProductManager implements InterfaceProduct {
         String searchName = scanner.nextLine();
         boolean check = true;
         for (int i = 0; i < productArrayList.size(); i++) {
-            if (productArrayList.get(i).getNameProduct().equals(searchName)) {
+            if (productArrayList.get(i).getNameProduct().contains(searchName)) {
                 System.out.println("Sản phần cần tìm: ");
                 System.out.println(productArrayList.get(i));
                 check = true;

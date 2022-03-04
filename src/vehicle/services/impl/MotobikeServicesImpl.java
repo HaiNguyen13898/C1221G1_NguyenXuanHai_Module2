@@ -1,6 +1,7 @@
-package vehicle.services;
+package vehicle.services.impl;
 
 import vehicle.models.Motorbike;
+import vehicle.services.Services;
 
 import java.util.ArrayList;
 import java.util.Scanner;
