@@ -77,10 +77,11 @@ public class Test {
                     }
                     break;
 
+                default:
+                    System.out.println("Hẹn gặp lại");
+                    flag = false;
+                    break;
             }
         } while (flag);
-
     }
-
-
 }

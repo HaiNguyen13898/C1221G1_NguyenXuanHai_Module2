@@ -1,6 +1,6 @@
 package vehicle;
 
-public class Car extends  Vehicle implements FunctionCar {
+public class Car extends  Vehicle  {
     private int numberSeat;
     private String vehicleType;
 
@@ -29,18 +29,5 @@ public class Car extends  Vehicle implements FunctionCar {
         this.vehicleType = vehicleType;
     }
 
-    @Override
-    public void addCar() {
 
-    }
-
-    @Override
-    public void displayCar() {
-
-    }
-
-    @Override
-    public void removeCar() {
-
-    }
 }

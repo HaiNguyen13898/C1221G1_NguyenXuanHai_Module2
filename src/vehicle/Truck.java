@@ -1,6 +1,6 @@
 package vehicle;
 
-public class Truck extends Vehicle implements FunctionTruck {
+public class Truck extends Vehicle  {
     private double vehicleLoad;
 
     public Truck() {
@@ -19,18 +19,5 @@ public class Truck extends Vehicle implements FunctionTruck {
         this.vehicleLoad = vehicleLoad;
     }
 
-    @Override
-    public void addTruck() {
 
-    }
-
-    @Override
-    public void displayTruck() {
-
-    }
-
-    @Override
-    public void removeTruck() {
-
-    }
 }
