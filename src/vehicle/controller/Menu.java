@@ -11,7 +11,6 @@ public class Menu {
 
     public void displayMenu () {
         int choice, choice1, choice2, choice3;
-
         MotobikeServicesImpl motobikeManager = new MotobikeServicesImpl();
         CarServicesImpl carManager = new CarServicesImpl();
         TruckServicesImpl truckManager = new TruckServicesImpl();
