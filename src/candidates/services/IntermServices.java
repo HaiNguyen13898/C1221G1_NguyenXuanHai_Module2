@@ -1,5 +1,4 @@
 package candidates.services;
-
 import candidates.models.Intern;
 import java.util.ArrayList;
 import java.util.Scanner;

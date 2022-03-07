@@ -1,7 +1,6 @@
 package candidates.services;
 
 import candidates.models.Fresher;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
