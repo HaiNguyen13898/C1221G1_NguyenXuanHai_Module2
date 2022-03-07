@@ -5,7 +5,7 @@ import candidates.models.Fresher;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FresherController implements CandidatesServices {
+public class FresherServices implements CandidatesServices {
     ArrayList<Fresher> fresherList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
@@ -46,7 +46,7 @@ public class FresherController implements CandidatesServices {
 
     @Override
     public void search() {
-        System.out.print("Enter name you want see information: ");
+        System.out.print("Enter the name you want see the information: ");
         String strFresher = scanner.nextLine();
         for (int i = 0; i < fresherList.size(); i++) {
             if ( fresherList.get(i).getFistName().contains(strFresher)  || fresherList.get(i).getLastName().contains(strFresher)) {
@@ -54,7 +54,8 @@ public class FresherController implements CandidatesServices {
                 System.out.print(fresherList.get(i).getBirthDate() + " || ");
                 System.out.print(fresherList.get(i).getAddress() + " || " );
                 System.out.print(fresherList.get(i).getPhoneNumber() + " || ");
-                System.out.println(fresherList.get(i).getEmail());
+                System.out.print(fresherList.get(i).getEmail() + " || ");
+                System.out.println(fresherList.get(i).fresher);
             }
         }
 

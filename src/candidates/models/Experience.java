@@ -1,9 +1,9 @@
 package candidates.models;
 
-public class Experience extends Candidates{
+public class Experience extends Candidates {
     private String expInYear;
     private String proSkill;
-
+    public final int exp = 0;
 
     public Experience() {
     }

@@ -1,11 +1,10 @@
 package candidates.services;
 
 import candidates.models.Intern;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class IntermController implements  CandidatesServices{
+public class IntermServices implements  CandidatesServices{
     ArrayList <Intern> internList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     @Override
@@ -46,7 +45,7 @@ public class IntermController implements  CandidatesServices{
 
     @Override
     public void search() {
-        System.out.print("Enter name you want see information: ");
+        System.out.print("Enter the name you want see the information: ");
         String strInterm = scanner.nextLine();
         for (int i = 0; i < internList.size(); i++) {
             if ( internList.get(i).getFistName().contains(strInterm)  || internList.get(i).getLastName().contains(strInterm)) {
@@ -54,7 +53,8 @@ public class IntermController implements  CandidatesServices{
                 System.out.print(internList.get(i).getBirthDate() + " || ");
                 System.out.print(internList.get(i).getAddress() + " || " );
                 System.out.print(internList.get(i).getPhoneNumber() + " || ");
-                System.out.println(internList.get(i).getEmail());
+                System.out.print(internList.get(i).getEmail() + " || ");
+                System.out.println(internList.get(i).intern);
             }
         }
     }

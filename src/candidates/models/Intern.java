@@ -1,10 +1,10 @@
 package candidates.models;
 
-public class Intern extends Candidates{
+public class Intern extends Candidates {
     private String major;
     private String semester;
     private String universityName;
-
+    public final int intern = 2;
 
     public Intern() {
     }

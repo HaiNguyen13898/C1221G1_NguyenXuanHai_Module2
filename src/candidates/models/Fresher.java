@@ -4,6 +4,7 @@ public class Fresher extends  Candidates {
     private String graduationDate;
     private String graduationRank;
     private String education;
+    public final int fresher = 1;
 
     public Fresher() {
     }

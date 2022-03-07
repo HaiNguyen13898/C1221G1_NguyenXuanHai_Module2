@@ -4,7 +4,7 @@ import candidates.models.Experience;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ExperienceController implements CandidatesServices {
+public class ExperienceServices implements CandidatesServices {
     ArrayList <Experience> experienceList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     @Override
@@ -30,7 +30,6 @@ public class ExperienceController implements CandidatesServices {
         Experience experiences = new Experience(id, fName, lName, bDate, address, pNumber, email, eYear, skill);
         experienceList.add(experiences);
     }
-
     @Override
     public void display() {
         System.out.println("------EXPERIENCE CANDIDATE-----");
@@ -42,7 +41,7 @@ public class ExperienceController implements CandidatesServices {
 
     @Override
     public void search() {
-        System.out.print("Enter name you want see information: ");
+        System.out.print("Enter the name you want see the information: ");
         String strExperience = scanner.nextLine();
         for (int i = 0; i < experienceList.size(); i++) {
             if ( experienceList.get(i).getFistName().contains(strExperience)  || experienceList.get(i).getLastName().contains(strExperience)) {
@@ -50,9 +49,9 @@ public class ExperienceController implements CandidatesServices {
                 System.out.print(experienceList.get(i).getBirthDate() + " || ");
                 System.out.print(experienceList.get(i).getAddress() + " || " );
                 System.out.print(experienceList.get(i).getPhoneNumber() + " || ");
-                System.out.println(experienceList.get(i).getEmail());
+                System.out.print(experienceList.get(i).getEmail() + " || ");
+                System.out.println(experienceList.get(i).exp);
             }
         }
-
     }
 }
