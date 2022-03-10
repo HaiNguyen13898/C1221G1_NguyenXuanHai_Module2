@@ -5,8 +5,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ExperienceServices implements CandidatesServices {
-    ArrayList <Experience> experienceList = new ArrayList<>();
+    private static  ArrayList <Experience> experienceList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+
+    static {
+        experienceList.add(new Experience(1,"hai", "nguyen", "221/3312/3123", "bốn bể là nhà", 1234567891,"ddda@gmailasdsad","12","hát hay" ) );
+        experienceList.add(new Experience(2,"tung", "nguyen", "221/3312/3123", "bốn bể là nhà", 1234567891,"ddda@gmailasdsad","12","hát hay" ) );
+        experienceList.add(new Experience(3,"hung", "nguyen", "221/3312/3123", "bốn bể là nhà", 1234567891,"ddda@gmailasdsad","12","hát hay" ) );
+        experienceList.add(new Experience(4,"duong", "nguyen", "221/3312/3123", "bốn bể là nhà", 1234567891,"ddda@gmailasdsad","12","hát hay" ) );
+        experienceList.add(new Experience(5,"hien", "nguyen", "221/3312/3123", "bốn bể là nhà", 1234567891,"ddda@gmailasdsad","12","hát hay" ) );
+    }
     @Override
     public void add() {
         System.out.print("Enter your id: ");
