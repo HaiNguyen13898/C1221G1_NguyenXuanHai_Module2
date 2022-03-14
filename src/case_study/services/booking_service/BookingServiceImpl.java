@@ -1,6 +1,4 @@
-package case_study.services.impl;
-
-import case_study.services.BookingService;
+package case_study.services.booking_service;
 
 public class BookingServiceImpl implements BookingService {
     @Override
@@ -15,6 +13,11 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void edit() {
+
+    }
+
+    @Override
+    public void delete() {
 
     }
 }

@@ -1,5 +1,7 @@
 package case_study.controller;
 
+import case_study.services.employee_service.EmployeeServicesImpl;
+
 import java.util.Scanner;
 
 public class FuramaController {
@@ -7,9 +9,10 @@ public class FuramaController {
         int choose1, choose2, choose3;
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
+        EmployeeServicesImpl employeeServices = new EmployeeServicesImpl();
         do {
             System.out.println("======Manin Menu======");
-            System.out.print(" 1.Employee Management\n" +
+            System.out.print("1.Employee Management\n" +
                     "2.Customer Management\n" +
                     "3.Facility Management \n" +
                     "4.Booking Management\n" +
@@ -28,10 +31,13 @@ public class FuramaController {
                     choose2 = Integer.parseInt(scanner.nextLine());
                     switch (choose2) {
                         case 1:
+                            employeeServices.display();
                             break;
                         case 2:
+                            employeeServices.add();
                             break;
                         case 3:
+                            employeeServices.edit();
                             break;
                     }
                     break;
@@ -126,6 +132,6 @@ public class FuramaController {
                     break;
             }
 
-        }while (flag) ;
+        } while (flag);
     }
 }

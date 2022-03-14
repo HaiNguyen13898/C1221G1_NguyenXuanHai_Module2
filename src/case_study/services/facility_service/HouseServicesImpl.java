@@ -1,6 +1,4 @@
-package case_study.services.impl;
-
-import case_study.services.FacilityService;
+package case_study.services.facility_service;
 
 public class HouseServicesImpl implements FacilityService {
     @Override
@@ -15,6 +13,11 @@ public class HouseServicesImpl implements FacilityService {
 
     @Override
     public void edit() {
+
+    }
+
+    @Override
+    public void delete() {
 
     }
 }

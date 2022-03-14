@@ -1,6 +1,4 @@
-package case_study.services.impl;
-
-import case_study.services.ContactService;
+package case_study.services.contact_service;
 
 public class ContactServiceImpl implements ContactService {
     @Override
@@ -15,6 +13,11 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void edit() {
+
+    }
+
+    @Override
+    public void delete() {
 
     }
 }

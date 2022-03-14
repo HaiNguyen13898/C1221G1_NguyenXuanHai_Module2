@@ -1,6 +1,4 @@
-package case_study.services.impl;
-
-import case_study.services.CustomerService;
+package case_study.services.customer_service;
 
 public class CustomerServicesImpl implements CustomerService {
     @Override
@@ -15,6 +13,11 @@ public class CustomerServicesImpl implements CustomerService {
 
     @Override
     public void edit() {
+
+    }
+
+    @Override
+    public void delete() {
 
     }
 }

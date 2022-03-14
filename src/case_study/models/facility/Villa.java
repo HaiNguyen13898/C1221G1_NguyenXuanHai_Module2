@@ -8,6 +8,12 @@ public class Villa extends Facility {
     public Villa() {
     }
 
+    public Villa(String standardRoom, double swimmingPoolArea, int numberFloor) {
+        this.standardRoom = standardRoom;
+        this.swimmingPoolArea = swimmingPoolArea;
+        this.numberFloor = numberFloor;
+    }
+
     public Villa(String nameService, double usableArea, int rentalCosts, int maximumPeople, String rentalType, String standardRoom, double swimmingPoolArea, int numberFloor) {
         super(nameService, usableArea, rentalCosts, maximumPeople, rentalType);
         this.standardRoom = standardRoom;

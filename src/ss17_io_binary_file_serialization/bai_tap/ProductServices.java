@@ -6,14 +6,7 @@ import java.util.Scanner;
 
 public class ProductServices {
 
-
     static List<Product> productList = new ArrayList<>();
-
-
-//    static {
-//        productList = WriteAndReadFileProduct.readProduct();
-//    }
-
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -30,10 +23,7 @@ public class ProductServices {
         productList = WriteAndReadFileProduct.readProduct();
         productList.add(products);
         WriteAndReadFileProduct.writeProduct(productList);
-
-
     }
-
 
     public static void display() {
         productList = WriteAndReadFileProduct.readProduct();

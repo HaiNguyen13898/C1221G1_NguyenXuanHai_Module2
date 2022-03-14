@@ -7,7 +7,6 @@ public abstract class Facility {
     private int maximumPeople;
     private String rentalType;
 
-
     public Facility() {
     }
 
