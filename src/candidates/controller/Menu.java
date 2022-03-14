@@ -10,7 +10,7 @@ public class Menu {
 
     public void displayMenu() {
 
-        int choose, choose1, choose2;
+        int choose, choose1;
         boolean flag = true;
         String yes = "yes";
 

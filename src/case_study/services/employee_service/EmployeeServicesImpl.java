@@ -3,11 +3,12 @@ package case_study.services.employee_service;
 import case_study.models.person.Employee;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServicesImpl implements EmployeeService {
 
-    public static ArrayList<Employee> employeeArrayList = new ArrayList<>();
+    static List<Employee> employeeArrayList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
     static {
@@ -34,7 +35,11 @@ public class EmployeeServicesImpl implements EmployeeService {
         String phoneNumber = scanner.nextLine();
         System.out.print("Nhập địa chỉ email: ");
         String email = scanner.nextLine();
-        System.out.print("Nhập trình độ: ");
+        System.out.print("Trung cấp\n" +
+                "Cao đẳng\n" +
+                "Đại học\n" +
+                "Sau đại học\n" +
+                "Nhập trình độ ");
         String standard = scanner.nextLine();
         System.out.print("Nhập vị trí: ");
         String position = scanner.nextLine();
@@ -58,66 +63,85 @@ public class EmployeeServicesImpl implements EmployeeService {
         display();
         System.out.print("Nhập id thông tin nhân viên bạn cần thay đổi: ");
         int id = Integer.parseInt(scanner.nextLine());
-                System.out.print("Nhập thông tin bạn cần sửa \n" +
-                        "1.Name\n" +
-                        "2.Day of birth\n" +
-                        "3.Gender\n" +
-                        "4.Identification  \n" +
-                        "5.Phone number\n" +
-                        "6.Email\n" +
-                        "7.Standard\n" +
-                        "8.Position\n" +
-                        "9.Salary\n");
-            int choose;
-            choose = Integer.parseInt(scanner.nextLine());
-            switch (choose) {
-                case 1:
-                    System.out.print("Sửa tên: ");
-                    String name = scanner.nextLine();
-                    employeeArrayList.get(id).setName(name);
-                    break;
-                case 2:
-                    System.out.print("Sửa ngày tháng năm sinh: ");
-                    String dateBirth = scanner.nextLine();
-                    employeeArrayList.get(id).setDayOfBirth(dateBirth);
-                    break;
-                case 3:
-                    System.out.print("Sửa ngày tháng năm sinh: ");
-                    String gender = scanner.nextLine();
-                    employeeArrayList.get(id).setGender(gender);
-                    break;
-                case 4:
-                    System.out.print("Sửa ngày tháng năm sinh: ");
-                    String identification = scanner.nextLine();
-                    employeeArrayList.get(id).setIdentityCard(identification);
-                    break;
-                case 5:
-                    String phoneNumber = scanner.nextLine();
-                    employeeArrayList.get(id).setPhoneNumber(phoneNumber);
-                    break;
-                case 6:
-                    String email = scanner.nextLine();
-                    employeeArrayList.get(id).setEmail(email);
-                    break;
-                case 7:
-                    String standard = scanner.nextLine();
-                    employeeArrayList.get(id).setStandard(standard);
-                    break;
-                case 8:
-                    String position = scanner.nextLine();
-                    employeeArrayList.get(id).setPosition(position);
-                    break;
-                case 9:
-                    double salary = Double.parseDouble(scanner.nextLine());
-                    employeeArrayList.get(id).setSalary(salary);
-                    break;
-                default:
-                    System.out.println("không có thông tin nào cần sửa");
-                    break;
-            }
-
-
+        int choose;
+        System.out.print("===Change information===\n" +
+                "1.Name\n" +
+                "2.Day of birth\n" +
+                "3.Gender\n" +
+                "4.Identification  \n" +
+                "5.Phone number\n" +
+                "6.Email\n" +
+                "7.Standard\n" +
+                "8.Position\n" +
+                "9.Salary\n" +
+                "Enter your choice: ");
+        choose = Integer.parseInt(scanner.nextLine());
+        switch (choose) {
+            case 1:
+                System.out.print("Sửa tên: ");
+                String name = scanner.nextLine();
+                employeeArrayList.get(id - 1).setName(name);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
+            case 2:
+                System.out.print("Sửa ngày tháng năm sinh: ");
+                String dateBirth = scanner.nextLine();
+                employeeArrayList.get(id - 1).setDayOfBirth(dateBirth);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
+            case 3:
+                System.out.print("Sửa giới tính: ");
+                String gender = scanner.nextLine();
+                employeeArrayList.get(id - 1).setGender(gender);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
+            case 4:
+                System.out.print("Sửa số CMND: ");
+                String identification = scanner.nextLine();
+                employeeArrayList.get(id - 1).setIdentityCard(identification);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
+            case 5:
+                System.out.print("Sửa số điện thoại: ");
+                String phoneNumber = scanner.nextLine();
+                employeeArrayList.get(id - 1).setPhoneNumber(phoneNumber);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
+            case 6:
+                System.out.print("Sửa số email: ");
+                String email = scanner.nextLine();
+                employeeArrayList.get(id - 1).setEmail(email);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
+            case 7:
+                System.out.print("Sửa trình độ: ");
+                String standard = scanner.nextLine();
+                employeeArrayList.get(id - 1).setStandard(standard);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
+            case 8:
+                System.out.print("Sửa vị trí: ");
+                String position = scanner.nextLine();
+                employeeArrayList.get(id - 1).setPosition(position);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
+            case 9:
+                System.out.print("Sửa lương: ");
+                double salary = Double.parseDouble(scanner.nextLine());
+                employeeArrayList.get(id - 1).setSalary(salary);
+                System.out.println("Đã sửa thành công!!!");
+                display();
+                break;
         }
+    }
 
     @Override
     public void delete() {
