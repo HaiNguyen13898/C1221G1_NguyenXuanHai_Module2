@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class EmployeeServicesImpl implements EmployeeService {
 
-    static List<Employee> employeeArrayList = new ArrayList<>();
+    private static List<Employee> employeeArrayList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
     static {
@@ -39,7 +39,7 @@ public class EmployeeServicesImpl implements EmployeeService {
                 "Cao đẳng\n" +
                 "Đại học\n" +
                 "Sau đại học\n" +
-                "Nhập trình độ ");
+                "Nhập trình độ: ");
         String standard = scanner.nextLine();
         System.out.print("Nhập vị trí: ");
         String position = scanner.nextLine();

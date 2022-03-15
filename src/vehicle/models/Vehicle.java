@@ -51,8 +51,7 @@ public class  Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "licensePlates='" + licensePlates + '\'' +
+        return "licensePlates='" + licensePlates + '\'' +
                 ", automakers='" + automakers + '\'' +
                 ", yearOfManufacture=" + yearOfManufacture +
                 ", ownerCar='" + ownerCar + '\'' +

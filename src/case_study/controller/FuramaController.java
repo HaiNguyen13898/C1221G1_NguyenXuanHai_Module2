@@ -1,6 +1,10 @@
 package case_study.controller;
 
+import case_study.services.customer_service.CustomerServicesImpl;
 import case_study.services.employee_service.EmployeeServicesImpl;
+import case_study.services.facility_service.HouseServicesImpl;
+import case_study.services.facility_service.RoomServicesImpl;
+import case_study.services.facility_service.VillaServicesImpl;
 
 import java.util.Scanner;
 
@@ -10,6 +14,10 @@ public class FuramaController {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         EmployeeServicesImpl employeeServices = new EmployeeServicesImpl();
+        CustomerServicesImpl customerServices = new CustomerServicesImpl();
+        HouseServicesImpl houseServices = new HouseServicesImpl();
+        RoomServicesImpl roomServices = new RoomServicesImpl();
+        VillaServicesImpl villaServices = new VillaServicesImpl();
         do {
             System.out.println("======Manin Menu======");
             System.out.print("1.Employee Management\n" +
@@ -51,10 +59,13 @@ public class FuramaController {
                     choose2 = Integer.parseInt(scanner.nextLine());
                     switch (choose2) {
                         case 1:
+                            customerServices.display();
                             break;
                         case 2:
+                            customerServices.add();
                             break;
                         case 3:
+                            customerServices.edit();
                             break;
                     }
                     break;
@@ -68,22 +79,48 @@ public class FuramaController {
                     choose2 = Integer.parseInt(scanner.nextLine());
                     switch (choose2) {
                         case 1:
-                            break;
-                        case 2:
-                            System.out.print("1.House\n" +
-                                    "2.Room\n" +
-                                    "3.Villa\n" +
-                                    "Enter your choice: ");
-                            choose3 = Integer.parseInt(scanner.nextLine());
-                            switch (choose3) {
+                            int choice1;
+                            System.out.print("1.Display house\n"+
+                                    "2.Display room\n"+
+                                    "3.Display villa\n"+
+                                    "4.Return main menu\n"+
+                                    "5.Enter your choice: ");
+                            choice1 = Integer.parseInt(scanner.nextLine());
+                            switch (choice1){
                                 case 1:
+                                    System.out.println("====HOUSE====");
+                                    houseServices.display();
                                     break;
                                 case 2:
+                                    System.out.println("====ROOM====");
+                                    roomServices.display();
                                     break;
                                 case 3:
+                                    System.out.println("====VILLA====");
+                                    villaServices.display();
                                     break;
                             }
                             break;
+                        case 2:
+                            int choice2;
+                            System.out.print("1.Add new house\n"+
+                                    "2.Add new room\n"+
+                                    "3.Add new villa\n"+
+                                    "4.Return main menu\n"+
+                                    "5.Enter your choice: ");
+                            choice2 = Integer.parseInt(scanner.nextLine());
+                            switch (choose2){
+                                case 1:
+                                    houseServices.add();
+                                    break;
+                                case 2:
+                                    roomServices.add();
+                                    break;
+                                case 3:
+                                    villaServices.add();
+                                    break;
+                            }
+
                         case 3:
                             break;
                     }
