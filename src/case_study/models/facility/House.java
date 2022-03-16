@@ -4,6 +4,7 @@ public class House extends Facility {
     private String standardRoom;
     private int numberFloor;
 
+
     public House() {
     }
 
@@ -12,8 +13,8 @@ public class House extends Facility {
         this.numberFloor = numberFloor;
     }
 
-    public House(String nameService, double usableArea, int rentalCosts, int maximumPeople, String rentalType, String standardRoom, int numberFloor) {
-        super(nameService, usableArea, rentalCosts, maximumPeople, rentalType);
+    public House(String id, String nameService, String usableArea, String rentalCosts, String maximumPeople, String rentalType, String standardRoom, int numberFloor) {
+        super(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType);
         this.standardRoom = standardRoom;
         this.numberFloor = numberFloor;
     }
@@ -33,6 +34,8 @@ public class House extends Facility {
     public void setNumberFloor(int numberFloor) {
         this.numberFloor = numberFloor;
     }
+
+
 
     @Override
     public String toString() {

@@ -1,30 +1,39 @@
 package case_study.services.facility_service;
 
 import case_study.models.facility.Villa;
+import case_study.utils.Regex;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class VillaServicesImpl implements FacilityService {
-    static List<Villa> villaList = new ArrayList<>();
+
+    private static Map<Villa, Integer> villaIntegerMap = new LinkedHashMap<>();
     Scanner scanner = new Scanner(System.in);
+    Regex regex = new Regex();
+
     static {
-        villaList.add(new Villa("rty", 78.6, 8000, 7, "tháng", "deluxe", 60.3, 2));
-        villaList.add(new Villa("uyy", 78.6, 8000, 7, "tháng", "deluxe", 60.3, 2));
-        villaList.add(new Villa("oui", 78.6, 8000, 7, "tháng", "deluxe", 60.3, 2));
-        villaList.add(new Villa("quwe", 78.6, 8000, 7, "tháng", "deluxe", 60.3, 2));
+        villaIntegerMap.put(new Villa("1", "rty", "78.6", "8000", "7", "tháng", "deluxe", 60.3, 2), 0);
+        villaIntegerMap.put(new Villa("2", "qwe", "78.6", "8000", "7", "tháng", "deluxe", 60.3, 2), 0);
+        villaIntegerMap.put(new Villa("3", "xcv", "78.6", "8000", "7", "tháng", "deluxe", 60.3, 2), 0);
+        villaIntegerMap.put(new Villa("3", "ZXc", "78.6", "8000", "7", "tháng", "deluxe", 60.3, 2), 0);
     }
+
     @Override
     public void add() {
+        String id;
+        do {
+            System.out.print("Nhập mã dịch vụ: ");
+            id = scanner.nextLine();
+        } while (!regex.regexId(id));
+
         System.out.print("Nhập tên dịch vụ: ");
         String nameService = scanner.nextLine();
         System.out.print("Nhập diện tích sử dụng: ");
-        double usableArea = Double.parseDouble(scanner.nextLine());
+        String usableArea = scanner.nextLine();
         System.out.print("Nhập chi phí thuê: ");
-        int rentalCosts = Integer.parseInt(scanner.nextLine());
+        String rentalCosts = scanner.nextLine();
         System.out.print("Nhập số lượng người ở tối đa: ");
-        int maximumPeople = Integer.parseInt(scanner.nextLine());
+        String maximumPeople = scanner.nextLine();
         System.out.print("kiểu thuê: \n" +
                 "Năm\n" +
                 "Tháng\n" +
@@ -38,15 +47,18 @@ public class VillaServicesImpl implements FacilityService {
         double swimmingPoolArea = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập số tầng: ");
         int numberFloor = Integer.parseInt(scanner.nextLine());
-        Villa villas = new Villa(nameService, usableArea, rentalCosts, maximumPeople, rentalType, standardVilla, swimmingPoolArea, numberFloor);
-        villaList.add(villas);
+        Villa villas = new Villa(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType, standardVilla, swimmingPoolArea, numberFloor);
+        villaIntegerMap.put(villas, 0);
     }
 
     @Override
     public void display() {
-        for (Villa v: villaList) {
-            System.out.println(v);
+        for (Map.Entry<Villa, Integer> villaEntry : villaIntegerMap.entrySet()) {
+            System.out.println(villaEntry.getKey() + " " + villaEntry.getValue());
         }
+    }
+
+    public void villaMaintenance() {
     }
 
     @Override

@@ -14,8 +14,8 @@ public class Villa extends Facility {
         this.numberFloor = numberFloor;
     }
 
-    public Villa(String nameService, double usableArea, int rentalCosts, int maximumPeople, String rentalType, String standardRoom, double swimmingPoolArea, int numberFloor) {
-        super(nameService, usableArea, rentalCosts, maximumPeople, rentalType);
+    public Villa(String id, String nameService, String usableArea, String rentalCosts, String maximumPeople, String rentalType, String standardRoom, double swimmingPoolArea, int numberFloor) {
+        super(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType);
         this.standardRoom = standardRoom;
         this.swimmingPoolArea = swimmingPoolArea;
         this.numberFloor = numberFloor;
@@ -44,6 +44,8 @@ public class Villa extends Facility {
     public void setNumberFloor(int numberFloor) {
         this.numberFloor = numberFloor;
     }
+
+
 
     @Override
     public String toString() {
