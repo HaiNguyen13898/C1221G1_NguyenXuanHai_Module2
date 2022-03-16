@@ -1,39 +1,36 @@
 package case_study.services.facility_service;
 
 import case_study.models.facility.Villa;
-import case_study.utils.Regex;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class VillaServicesImpl implements FacilityService {
 
     private static Map<Villa, Integer> villaIntegerMap = new LinkedHashMap<>();
     Scanner scanner = new Scanner(System.in);
-    Regex regex = new Regex();
+
 
     static {
-        villaIntegerMap.put(new Villa("1", "rty", "78.6", "8000", "7", "tháng", "deluxe", 60.3, 2), 0);
-        villaIntegerMap.put(new Villa("2", "qwe", "78.6", "8000", "7", "tháng", "deluxe", 60.3, 2), 0);
-        villaIntegerMap.put(new Villa("3", "xcv", "78.6", "8000", "7", "tháng", "deluxe", 60.3, 2), 0);
-        villaIntegerMap.put(new Villa("3", "ZXc", "78.6", "8000", "7", "tháng", "deluxe", 60.3, 2), 0);
+        villaIntegerMap.put(new Villa("1", "rty", 64, 8000, 8, "tháng", "deluxe", 60.3, 2), 0);
+        villaIntegerMap.put(new Villa("2", "rty", 64, 8000, 8, "tháng", "deluxe", 60.3, 2), 0);
+        villaIntegerMap.put(new Villa("3", "rty", 64, 8000, 8, "tháng", "deluxe", 60.3, 2), 0);
+        villaIntegerMap.put(new Villa("4", "rty", 64, 8000, 8, "tháng", "deluxe", 60.3, 2), 0);
     }
 
     @Override
     public void add() {
-        String id;
-        do {
-            System.out.print("Nhập mã dịch vụ: ");
-            id = scanner.nextLine();
-        } while (!regex.regexId(id));
-
+        System.out.print("Nhập mã dịch vụ: ");
+        String  id = scanner.nextLine();
         System.out.print("Nhập tên dịch vụ: ");
         String nameService = scanner.nextLine();
         System.out.print("Nhập diện tích sử dụng: ");
-        String usableArea = scanner.nextLine();
+        double  usableArea = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập chi phí thuê: ");
-        String rentalCosts = scanner.nextLine();
+        double rentalCosts = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập số lượng người ở tối đa: ");
-        String maximumPeople = scanner.nextLine();
+        int maximumPeople = Integer.parseInt(scanner.nextLine());
         System.out.print("kiểu thuê: \n" +
                 "Năm\n" +
                 "Tháng\n" +

@@ -5,15 +5,15 @@ import java.util.Objects;
 public abstract class Facility {
     private String id;
     private String nameService;
-    private String usableArea;
-    private String rentalCosts;
-    private String maximumPeople;
+    private double usableArea;
+    private double rentalCosts;
+    private int maximumPeople;
     private String rentalType;
 
     public Facility() {
     }
 
-    public Facility(String id, String nameService, String usableArea, String rentalCosts, String maximumPeople, String rentalType) {
+    public Facility(String id, String nameService, double usableArea, double rentalCosts, int maximumPeople, String rentalType) {
         this.id = id;
         this.nameService = nameService;
         this.usableArea = usableArea;
@@ -38,27 +38,27 @@ public abstract class Facility {
         this.nameService = nameService;
     }
 
-    public String getUsableArea() {
+    public double getUsableArea() {
         return usableArea;
     }
 
-    public void setUsableArea(String usableArea) {
+    public void setUsableArea(double usableArea) {
         this.usableArea = usableArea;
     }
 
-    public String getRentalCosts() {
+    public double getRentalCosts() {
         return rentalCosts;
     }
 
-    public void setRentalCosts(String rentalCosts) {
+    public void setRentalCosts(double rentalCosts) {
         this.rentalCosts = rentalCosts;
     }
 
-    public String getMaximumPeople() {
+    public int getMaximumPeople() {
         return maximumPeople;
     }
 
-    public void setMaximumPeople(String maximumPeople) {
+    public void setMaximumPeople(int maximumPeople) {
         this.maximumPeople = maximumPeople;
     }
 

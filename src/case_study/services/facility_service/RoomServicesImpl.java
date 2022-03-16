@@ -12,12 +12,12 @@ public class RoomServicesImpl implements FacilityService {
     Scanner scanner = new Scanner(System.in);
 
     static {
-        roomIntegerMap.put(new Room("1", "ckd", "35", "70000", "2", "ngày", "dọn phòng"), 0);
-        roomIntegerMap.put(new Room("2", "tert", "35", "70000", "2", "ngày", "dọn phòng"), 0);
-        roomIntegerMap.put(new Room("3", "opo", "35", "70000", "2", "ngày", "dọn phòng"), 0);
-        roomIntegerMap.put(new Room("4", "mnm", "35", "70000", "2", "ngày", "dọn phòng"), 0);
-    }
+        roomIntegerMap.put(new Room("1", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
+        roomIntegerMap.put(new Room("2", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
+        roomIntegerMap.put(new Room("3", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
+        roomIntegerMap.put(new Room("4", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
 
+    }
 
     @Override
     public void add() {
@@ -26,11 +26,11 @@ public class RoomServicesImpl implements FacilityService {
         System.out.print("Nhập tên dịch vụ: ");
         String nameService = scanner.nextLine();
         System.out.print("Nhập diện tích sử dụng: ");
-        String usableArea = scanner.nextLine();
+        double  usableArea = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập chi phí thuê: ");
-        String rentalCosts = scanner.nextLine();
+        double rentalCosts = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập số lượng người ở tối đa: ");
-        String maximumPeople = scanner.nextLine();
+        int maximumPeople = Integer.parseInt(scanner.nextLine());
         System.out.print("kiểu thuê: \n" +
                 "Năm\n" +
                 "Tháng\n" +
