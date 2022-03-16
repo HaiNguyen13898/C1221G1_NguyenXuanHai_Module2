@@ -109,7 +109,7 @@ public class FuramaController {
                                     "4.Return main menu\n"+
                                     "5.Enter your choice: ");
                             choice2 = Integer.parseInt(scanner.nextLine());
-                            switch (choose2){
+                            switch (choice2){
                                 case 1:
                                     houseServices.add();
                                     break;

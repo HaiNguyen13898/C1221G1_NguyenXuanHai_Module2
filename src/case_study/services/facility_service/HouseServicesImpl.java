@@ -42,7 +42,7 @@ public class HouseServicesImpl implements FacilityService {
         System.out.print("Nhập số tầng: ");
         int numberFloor = Integer.parseInt(scanner.nextLine());
         House houses = new House(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType, standardRoom, numberFloor);
-        houseIntegerMap.put(houses, 0);
+        houseIntegerMap.put(houses, 3);
 
     }
 

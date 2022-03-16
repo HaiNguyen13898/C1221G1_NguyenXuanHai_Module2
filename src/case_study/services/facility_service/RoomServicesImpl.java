@@ -41,7 +41,8 @@ public class RoomServicesImpl implements FacilityService {
         System.out.print("Nhập dịch vụ miễn phí đi kèm: ");
         String freeServ = scanner.nextLine();
         Room rooms = new Room(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType, freeServ);
-        roomIntegerMap.put(rooms, 0);
+        roomIntegerMap.put(rooms, 4);
+
     }
 
     @Override
