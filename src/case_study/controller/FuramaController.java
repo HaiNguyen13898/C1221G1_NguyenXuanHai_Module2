@@ -2,14 +2,14 @@ package case_study.controller;
 
 import case_study.services.customer_service.CustomerServicesImpl;
 import case_study.services.employee_service.EmployeeServicesImpl;
-import case_study.services.facility_service.HouseServicesImpl;
-import case_study.services.facility_service.RoomServicesImpl;
-import case_study.services.facility_service.VillaServicesImpl;
+import case_study.services.facility_service.house_service.HouseServicesImpl;
+import case_study.services.facility_service.room_service.RoomServicesImpl;
+import case_study.services.facility_service.villa_service.VillaServicesImpl;
 
 import java.util.Scanner;
 
 public class FuramaController {
-    public void displayMenu() {
+    public void displayMenu()  {
         int choose1, choose2, choose3;
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
