@@ -33,4 +33,9 @@ public class Room extends Facility {
                 ", freeService='" + freeService + '\'' +
                 " }" ;
     }
+    public String writeFileRoom() {
+        return this.getId() + ", " + this.getNameService() + ", " + this.getUsableArea() + ", " + this.getRentalCosts() +
+                ", " + this.getMaximumPeople() + ", " + this.getRentalType() +
+                ", " + this.getFreeService();
+    }
 }

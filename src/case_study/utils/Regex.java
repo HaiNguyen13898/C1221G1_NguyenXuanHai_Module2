@@ -8,7 +8,7 @@ public class Regex {
     public static final String REGEX_ID = "^SV(VL|HO|RO)[-]\\d{4}$";
     public static final String REGEX_NAME = "^[A-Z][a-z]+";
     public static final String REGEX_AREA = "^([3-9]\\d|[1-9]\\d{2,})$";
-    public static final String REGEX_INT = "^[1-9]|([1][0-9]$)";
+    public static final String REGEX_INT = "^[1-9][0-9]*$";
     public static final String REGEX_PERSON = "^[1-9]|[1][0-9]$";
     static Scanner sc = new Scanner(System.in);
     public static String checkRegex(String string, String regex, String err) {
@@ -28,26 +28,51 @@ public class Regex {
     //cách 2
     public static boolean checkId(String id) {
         String idCheck = "^SV(VL|HO|RO)[-]\\d{4}$";
-        return id.matches(idCheck);
+        if(id.matches(idCheck)){
+            return true;
+        }else {
+            System.out.println("Nhập sai, vui lòng nhập lại (SVXX-XXXX)");
+            return false;
+        }
     }
 
     public static boolean checkName(String name) {
         String nameCheck = "^[A-Z][a-z]+";
-        return name.matches(nameCheck);
+        if (name.matches(nameCheck)){
+            return true;
+        }else {
+            System.out.println("Nhập sai, vui lòng nhập lại (viết hoa chữ cái đầu)");
+            return false;
+        }
     }
     public static boolean checkArea (String area) {
         String areaCheck = "^([3-9]\\d|[1-9]\\d{2,})$";
-        return area.matches(areaCheck);
+        if (area.matches(areaCheck)){
+            return true;
+        }else {
+            System.out.println("Nhập sai, vui lòng nhập lại");
+            return false;
+        }
     }
 
     public static boolean checkCost (String cost) {
-        String costCheck = "^([3-9]\\d|[1-9]\\d{2,})$";
-        return cost.matches(costCheck);
+        String costCheck = "^[1-9][0-9]*$";
+        if (cost.matches(costCheck)){
+            return true;
+        }else {
+            System.out.println("Nhập sai vui lòng nhập lại (giá tiền phải lớn hơn 0)");
+            return false;
+        }
     }
 
     public static boolean checkPerson (String person) {
         String personCheck = "^[1-9]|[1][0-9]$";
-        return person.matches(personCheck);
+        if (person.matches(personCheck)){
+            return true;
+        }else {
+            System.out.println("Nhập sai vui lòng nhập lại");
+            return false;
+        }
     }
 
 }

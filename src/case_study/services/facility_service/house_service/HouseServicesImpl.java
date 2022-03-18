@@ -8,7 +8,6 @@ import java.util.*;
 
 public class HouseServicesImpl implements FacilityService {
     private static Map<House, Integer> houseIntegerMap = new LinkedHashMap<>();
-    private static List<House> houseArrayList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     String[] typeRent = {"Giờ", "Ngày", "Tháng", "Năm"};
 
@@ -26,8 +25,8 @@ public class HouseServicesImpl implements FacilityService {
         double rentalCosts = Double.parseDouble(inputCost());
         int maximumPeople = Integer.parseInt(inputPerson());
 
-        String rentalType =null;
-        boolean flag ;
+        String rentalType = null;
+        boolean flag;
         do {
             int choice;
             System.out.print("1.Giờ\n" +
@@ -36,13 +35,13 @@ public class HouseServicesImpl implements FacilityService {
                     "4.Năm\n" +
                     "5.Nhập lựa kiểu thuê: ");
             choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
+            switch (choice) {
                 case 1:
-                    rentalType= typeRent[0];
+                    rentalType = typeRent[0];
                     flag = true;
                     break;
                 case 2:
-                    rentalType= typeRent[1];
+                    rentalType = typeRent[1];
                     flag = true;
                     break;
                 case 3:
@@ -50,8 +49,8 @@ public class HouseServicesImpl implements FacilityService {
                     flag = true;
                     break;
                 case 4:
-                    rentalType = typeRent [3];
-                    flag =true;
+                    rentalType = typeRent[3];
+                    flag = true;
                     break;
                 default:
                     System.out.println("Nhập sai vui lòng nhập lại");
@@ -65,20 +64,16 @@ public class HouseServicesImpl implements FacilityService {
         int numberFloor = Integer.parseInt(scanner.nextLine());
         House houses = new House(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType, standardRoom, numberFloor);
         houseIntegerMap.put(houses, 0);
-        houseArrayList.add(houses);
-        WriteFileHouse.writeStringListToCSV(houseArrayList, "src/case_study/data/house.csv", false);
-
+        WriteFileHouse.writeStringListToCSV(houseIntegerMap, "src/case_study/data/house.csv", false);
     }
 
     @Override
     public void display() {
-        houseArrayList = ReadFileHouse.readHouseFromCSV();
-//        for (Map.Entry<House, Integer> houseEntry : houseIntegerMap.entrySet()) {
-//            System.out.println(houseEntry.getKey() + " " + houseEntry.getValue());
-//        }
-        for (House h : houseArrayList) {
-            System.out.println(h);
+        Map<House, Integer>houseMap=ReadFileHouse.readHouseFromCSV();
+        for (Map.Entry<House, Integer> house : houseMap.entrySet()) {
+            System.out.println(house.getKey() + " " + house.getValue());
         }
+
     }
 
     private String inputId() {

@@ -1,6 +1,6 @@
-package case_study.services.facility_service.house_service;
+package case_study.services.facility_service.room_service;
 
-import case_study.models.facility.House;
+import case_study.models.facility.Room;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,17 +8,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-public class WriteFileHouse {
-
-    public static void writeStringListToCSV(Map<House, Integer> houseMap, String pathFile, Boolean append) {
+public class WriteFileRoom {
+    public static void writeStringListToCSV(Map<Room, Integer> roomMap, String pathFile, Boolean append) {
         File file = new File(pathFile);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
             fileWriter = new FileWriter(file, append);
             bufferedWriter = new BufferedWriter(fileWriter);
-            for (Map.Entry<House, Integer> h : houseMap.entrySet()) {
-                bufferedWriter.write(h.getKey().writeFileHouse() + "," + h.getValue());
+            for (Map.Entry<Room, Integer> r : roomMap.entrySet()) {
+                bufferedWriter.write(r.getKey().writeFileRoom() + "," + r.getValue());
                 bufferedWriter.flush();
                 bufferedWriter.newLine();
             }
@@ -27,5 +26,6 @@ public class WriteFileHouse {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

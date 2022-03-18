@@ -35,13 +35,17 @@ public class House extends Facility {
         this.numberFloor = numberFloor;
     }
 
-
-
     @Override
     public String toString() {
         return "House {" + super.toString() +
                 ", standardRoom='" + standardRoom + '\'' +
                 ", numberFloor=" + numberFloor +
-                " }"  ;
+                " }";
+    }
+
+    public String writeFileHouse() {
+        return this.getId() + "," + this.getNameService() + "," + this.getUsableArea() + "," + this.getRentalCosts() +
+                "," + this.getMaximumPeople() + "," + this.getRentalType() +
+                "," + this.getStandardRoom() + "," + this.getNumberFloor();
     }
 }

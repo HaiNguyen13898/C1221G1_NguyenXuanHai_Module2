@@ -8,7 +8,6 @@ import java.util.*;
 
 public class RoomServicesImpl implements FacilityService {
     private static Map<Room, Integer> roomIntegerMap = new LinkedHashMap<>();
-    private static List<Room> roomList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     String[] typeRent = {"Giờ", "Ngày", "Tháng", "Năm"};
 
@@ -48,26 +47,26 @@ public class RoomServicesImpl implements FacilityService {
             nameService = scanner.nextLine();
         } while (!Regex.checkName(nameService));
 
-        double usableArea;
+        String usableArea;
         do {
             System.out.println("Nhập diện tích sử dụng: ");
-            usableArea = Double.parseDouble(scanner.nextLine());
-        } while (!Regex.checkArea(usableArea + " "));
+            usableArea = scanner.nextLine();
+        } while (!Regex.checkArea(usableArea));
 
-        double rentalCosts;
+        String rentalCosts;
         do {
             System.out.println("Nhập giá thuê: ");
-            rentalCosts = Double.parseDouble(scanner.nextLine());
-        } while (!Regex.checkCost(rentalCosts + ""));
+            rentalCosts = scanner.nextLine();
+        } while (!Regex.checkCost(rentalCosts));
 
-        int maximumPeople;
+        String maximumPeople;
         do {
             System.out.println("Nhập số người ở tối đa: ");
-            maximumPeople = Integer.parseInt(scanner.nextLine());
-        } while (!Regex.checkPerson(maximumPeople + ""));
+            maximumPeople = scanner.nextLine();
+        } while (!Regex.checkPerson(maximumPeople));
 
-        String rentalType =null;
-        boolean flag ;
+        String rentalType = null;
+        boolean flag;
         do {
             int choice;
             System.out.print("1.Giờ\n" +
@@ -76,13 +75,13 @@ public class RoomServicesImpl implements FacilityService {
                     "4.Năm\n" +
                     "5.Nhập lựa kiểu thuê: ");
             choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
+            switch (choice) {
                 case 1:
-                    rentalType= typeRent[0];
+                    rentalType = typeRent[0];
                     flag = true;
                     break;
                 case 2:
-                    rentalType= typeRent[1];
+                    rentalType = typeRent[1];
                     flag = true;
                     break;
                 case 3:
@@ -90,8 +89,8 @@ public class RoomServicesImpl implements FacilityService {
                     flag = true;
                     break;
                 case 4:
-                    rentalType = typeRent [3];
-                    flag =true;
+                    rentalType = typeRent[3];
+                    flag = true;
                     break;
                 default:
                     System.out.println("Nhập sai vui lòng nhập lại");
@@ -102,17 +101,17 @@ public class RoomServicesImpl implements FacilityService {
 
         System.out.println("Nhập dịch vụ miễn phí: ");
         String freeService = scanner.nextLine();
-        Room rooms = new Room(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType, freeService);
+        Room rooms = new Room(id, nameService, Double.parseDouble(usableArea), Double.parseDouble(rentalCosts), Integer.parseInt(maximumPeople), rentalType, freeService);
         roomIntegerMap.put(rooms, 0);
-        roomList.add(rooms);
-
+        WriteFileRoom.writeStringListToCSV(roomIntegerMap, "src/case_study/data/room.csv", false);
     }
 
 
     @Override
     public void display() {
-        for (Map.Entry<Room, Integer> roomEntry : roomIntegerMap.entrySet()) {
-            System.out.println(roomEntry.getKey() + " " + roomEntry.getValue());
+        Map<Room, Integer> roomMap = new LinkedHashMap();
+        for (Map.Entry<Room, Integer> room : roomMap.entrySet()) {
+            System.out.println(room.getKey() + " " + room.getValue());
         }
     }
 //    private String inputId (){

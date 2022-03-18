@@ -29,8 +29,8 @@ public class VillaServicesImpl implements FacilityService {
         double rentalCosts = Double.parseDouble(inputCost());
         int maximumPeople = Integer.parseInt(inputPerson());
 
-        String rentalType =null;
-        boolean flag ;
+        String rentalType = null;
+        boolean flag;
         do {
             int choice;
             System.out.print("1.Giờ\n" +
@@ -39,13 +39,13 @@ public class VillaServicesImpl implements FacilityService {
                     "4.Năm\n" +
                     "5.Nhập lựa kiểu thuê: ");
             choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
+            switch (choice) {
                 case 1:
-                    rentalType= typeRent[0];
+                    rentalType = typeRent[0];
                     flag = true;
                     break;
                 case 2:
-                    rentalType= typeRent[1];
+                    rentalType = typeRent[1];
                     flag = true;
                     break;
                 case 3:
@@ -53,8 +53,8 @@ public class VillaServicesImpl implements FacilityService {
                     flag = true;
                     break;
                 case 4:
-                    rentalType = typeRent [3];
-                    flag =true;
+                    rentalType = typeRent[3];
+                    flag = true;
                     break;
                 default:
                     System.out.println("Nhập sai vui lòng nhập lại");
@@ -69,37 +69,43 @@ public class VillaServicesImpl implements FacilityService {
         int numberFloor = Integer.parseInt(scanner.nextLine());
         Villa villas = new Villa(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType, standardVilla, swimmingPoolArea, numberFloor);
         villaIntegerMap.put(villas, 0);
+        WriteFileVilla.writeStringListToCSV(villaIntegerMap, "src/case_study/data/villa.csv", false);
     }
 
     @Override
     public void display() {
-        for (Map.Entry<Villa, Integer> villaEntry : villaIntegerMap.entrySet()) {
+        Map<Villa, Integer> villaMap = new LinkedHashMap<>();
+        for (Map.Entry<Villa, Integer> villaEntry : villaMap.entrySet()) {
             System.out.println(villaEntry.getKey() + " " + villaEntry.getValue());
         }
     }
 
-    private String inputId (){
+    private String inputId() {
         System.out.println("Nhập mã dịch vụ: ");
-        return Regex.checkRegex(scanner.nextLine(), Regex.REGEX_ID, "Mã dịch vụ theo định dạng là SVXX-YYYY!!" );
+        return Regex.checkRegex(scanner.nextLine(), Regex.REGEX_ID, "Mã dịch vụ theo định dạng là SVXX-YYYY!!");
     }
-    private String inputArea (){
+
+    private String inputArea() {
         System.out.println("Nhập diện tích sử dụng: ");
         return Regex.checkRegex(scanner.nextLine(), Regex.REGEX_AREA, "Diện tích phải lớn hơn 30");
     }
-    private String inputNameService (){
+
+    private String inputNameService() {
         System.out.println("Nhập tên dịch vụ: ");
         return Regex.checkRegex(scanner.nextLine(), Regex.REGEX_NAME, "Viết hoa chữ cái đầu");
     }
-    private String inputCost (){
+
+    private String inputCost() {
         System.out.println("Nhập chi phí thuê: ");
         return Regex.checkRegex(scanner.nextLine(), Regex.REGEX_INT, "Chi phí thuê phải lớn hơn 0");
     }
-    private String inputPerson (){
+
+    private String inputPerson() {
         System.out.println("Nhập số lượng người ở tối đa: ");
         return Regex.checkRegex(scanner.nextLine(), Regex.REGEX_PERSON, "Số lượng người phải >0 và <20");
     }
 
-    private String inputStandardRoom (){
+    private String inputStandardRoom() {
         System.out.println("Nhập tiêu chuẩn phòng: ");
         return Regex.checkRegex(scanner.nextLine(), Regex.REGEX_NAME, "Viết hoa chữ cái đầu");
     }
