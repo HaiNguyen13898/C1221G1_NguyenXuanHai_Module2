@@ -9,13 +9,14 @@ import java.util.Scanner;
 public class CustomerServicesImpl implements CustomerService {
     private static List<Customer> customerList = new LinkedList<>();
     Scanner scanner = new Scanner(System.in);
+    String[] customerType = {"Diamond", "Platinium", "Gold", "Silver", "Member"};
 
-    static {
-        customerList.add(new Customer(1, "Nguyễn Văn A", "21/2/221", "Nam", "234023", "0626122132", "ashsadh@fasd.com", "Diamond", "94 lê quang đạo"));
-        customerList.add(new Customer(2, "Nguyễn Văn B", "21/12/01", "Nữ", "234023", "0626122132", "ashsadh@fasd.com", "Diamond", "94 lê quang đạo"));
-        customerList.add(new Customer(3, "Nguyễn Văn C", "1/2/021", "Nữ", "234023", "0626122132", "ashsadh@fasd.com", "Diamond", "94 lê quang đạo"));
-        customerList.add(new Customer(4, "Nguyễn Văn D", "21/1/2021", "Nam", "234023", "0626122132", "ashsadh@fasd.com", "Diamond", "94 lê quang đạo"));
-    }
+//    static {
+//        customerList.add(new Customer(1, "Nguyễn Văn A", "21/2/221", "Nam", "234023", "0626122132", "ashsadh@fasd.com", "Diamond", "94 lê quang đạo"));
+//        customerList.add(new Customer(2, "Nguyễn Văn B", "21/12/01", "Nữ", "234023", "0626122132", "ashsadh@fasd.com", "Diamond", "94 lê quang đạo"));
+//        customerList.add(new Customer(3, "Nguyễn Văn C", "1/2/021", "Nữ", "234023", "0626122132", "ashsadh@fasd.com", "Diamond", "94 lê quang đạo"));
+//        customerList.add(new Customer(4, "Nguyễn Văn D", "21/1/2021", "Nam", "234023", "0626122132", "ashsadh@fasd.com", "Diamond", "94 lê quang đạo"));
+//    }
 
     @Override
     public void add() {
@@ -33,21 +34,56 @@ public class CustomerServicesImpl implements CustomerService {
         String phoneNumber = scanner.nextLine();
         System.out.print("Nhập địa chỉ email: ");
         String email = scanner.nextLine();
-        System.out.print("Diamond\n" +
-                "Platinium\n" +
-                "Gold\n" +
-                "Silver\n" +
-                "Member\n" +
-                "Nhập loại khách hàng: ");
-        String typeOfGuest = scanner.nextLine();
+
+        String typeOfGuest =null;
+        boolean flag;
+        int choice;
+        do {
+            System.out.print("1.Diamond\n" +
+                    "2.Platinium\n" +
+                    "3.Gold\n" +
+                    "4.Silver\n" +
+                    "5.Member\n" +
+                    "Nhập loại khách hàng: ");
+            choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    typeOfGuest = customerType[0];
+                    flag = true;
+                    break;
+                case 2:
+                    typeOfGuest = customerType[1];
+                    flag = true;
+                    break;
+                case 3:
+                    typeOfGuest = customerType[2];
+                    flag = true;
+                    break;
+                case 4:
+                    typeOfGuest = customerType[3];
+                    flag = true;
+                    break;
+                case 5:
+                    typeOfGuest = customerType[4];
+                    flag = true;
+                    break;
+                default:
+                    System.out.println("Bạn đã nhập sai vui lòng nhập lại");
+                    flag = false;
+                    break;
+            }
+        } while (!flag);
+
         System.out.print("Nhập địa chỉ khách: ");
         String address = scanner.nextLine();
         Customer customers = new Customer(id, name, dateBirth, gender, idCard, phoneNumber, email, typeOfGuest, address);
         customerList.add(customers);
+        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
     }
 
     @Override
     public void display() {
+        List<Customer> customerList = ReadFileCustomer.readCustomerFromCSV();
         for (Customer c : customerList) {
             System.out.println(c);
         }
@@ -134,4 +170,5 @@ public class CustomerServicesImpl implements CustomerService {
     @Override
     public void delete() {
     }
+
 }

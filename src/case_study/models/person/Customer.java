@@ -41,4 +41,11 @@ public class Customer extends Person {
                 ", address='" + address + '\'' +
                 " }";
     }
+
+    public String WriteFileCustomer() {
+        return this.getId() + ", " + this.getName() + ", " + this.getDayOfBirth() +
+                ", " + this.getGender() + ", " + this.getIdentityCard() + ", " +
+                this.getPhoneNumber() + ", " + this.getEmail() + ", " + this.getKindsOfCustomer() +
+                ", " + this.getAddress();
+    }
 }

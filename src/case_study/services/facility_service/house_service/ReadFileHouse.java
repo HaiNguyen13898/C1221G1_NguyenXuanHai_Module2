@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFileHouse {
-    public  List<House> readHouseFromCSV(){
+    public static List<House> readHouseFromCSV(){
         List<House> houseArrayList = new ArrayList<>();
         File file = new File("src/case_study/data/house.csv");
         FileReader fileReader=null;

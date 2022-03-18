@@ -51,6 +51,13 @@ public class Employee extends Person {
                 ", standard='" + standard + '\'' +
                 ", position='" + position + '\'' +
                 ", salary=" + salary +
-                " }" ;
+                " }";
+    }
+
+    public String writeFileEmployee() {
+        return this.getId() + ", " + this.getName() + ", " + this.getDayOfBirth() +
+                ", " + this.getGender() + ", " + this.getIdentityCard() + ", " +
+                this.getPhoneNumber() + ", " + this.getEmail() + ", " + this.getStandard() +
+                ", " + this.getPosition() + ", " + this.getSalary();
     }
 }

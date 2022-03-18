@@ -11,13 +11,13 @@ public class EmployeeServicesImpl implements EmployeeService {
     private static List<Employee> employeeArrayList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
-    static {
-        employeeArrayList.add(new Employee(1, "Nguyen Xuan Hai", "13/08/1998", "Nam", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
-        employeeArrayList.add(new Employee(2, "Tran Minh Hoang", "11/02/1988", "Nam", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
-        employeeArrayList.add(new Employee(3, "Nguyen Thanh Tung", "02/01/1994", "Nam", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
-        employeeArrayList.add(new Employee(4, "Bui Thi Mai", "04/06/1974", "Nữ", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
-        employeeArrayList.add(new Employee(5, "Tran Xuan Hien", "27/07/2005", "Nữ", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
-    }
+//    static {
+//        employeeArrayList.add(new Employee(1, "Nguyen Xuan Hai", "13/08/1998", "Nam", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
+//        employeeArrayList.add(new Employee(2, "Tran Minh Hoang", "11/02/1988", "Nam", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
+//        employeeArrayList.add(new Employee(3, "Nguyen Thanh Tung", "02/01/1994", "Nam", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
+//        employeeArrayList.add(new Employee(4, "Bui Thi Mai", "04/06/1974", "Nữ", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
+//        employeeArrayList.add(new Employee(5, "Tran Xuan Hien", "27/07/2005", "Nữ", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
+//    }
 
     @Override
     public void add() {
@@ -47,15 +47,15 @@ public class EmployeeServicesImpl implements EmployeeService {
         double salary = Double.parseDouble(scanner.nextLine());
         Employee employees = new Employee(id, name, dateBirth, gender, idCard, phoneNumber, email, standard, position, salary);
         employeeArrayList.add(employees);
+        WriteFileEmployee.writeStringListToCSV(employeeArrayList, "src/case_study/data/employee.csv", false);
     }
 
     @Override
     public void display() {
-        System.out.println("=====DANH SÁCH NHÂN VIÊN=====");
-        for (Employee e : employeeArrayList) {
+        List<Employee> employeeList = ReadFileEmployee.readEmployeeFromCSV();
+        for (Employee e : employeeList) {
             System.out.println(e);
         }
-
     }
 
     @Override

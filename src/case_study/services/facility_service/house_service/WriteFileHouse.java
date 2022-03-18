@@ -10,14 +10,14 @@ import java.util.List;
 
 public class WriteFileHouse {
 
-    public  void  writeStringListToCSV(List<House> stringList, String pathFile, Boolean append){
+    public static void writeStringListToCSV(List<House> stringList, String pathFile, Boolean append) {
         File file = new File(pathFile);
-        FileWriter fileWriter=null;
-        BufferedWriter bufferedWriter=null;
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter(file,append); // true ghi tiếp; false (mặc đinh): nghi đè
-            bufferedWriter= new BufferedWriter(fileWriter);
-            for (House h: stringList) {
+            fileWriter = new FileWriter(file, append);
+            bufferedWriter = new BufferedWriter(fileWriter);
+            for (House h : stringList) {
                 bufferedWriter.write(h.toString());
                 bufferedWriter.flush();
                 bufferedWriter.newLine();

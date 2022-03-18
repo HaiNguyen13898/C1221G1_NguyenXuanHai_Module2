@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class FuramaController {
     public void displayMenu()  {
-        int choose1, choose2, choose3;
+        int choose1, choose2;
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         EmployeeServicesImpl employeeServices = new EmployeeServicesImpl();

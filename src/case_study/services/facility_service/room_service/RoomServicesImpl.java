@@ -10,15 +10,15 @@ public class RoomServicesImpl implements FacilityService {
     private static Map<Room, Integer> roomIntegerMap = new LinkedHashMap<>();
     private static List<Room> roomList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-    Regex regex = new Regex();
+    String[] typeRent = {"Giờ", "Ngày", "Tháng", "Năm"};
 
-    static {
-        roomIntegerMap.put(new Room("1", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
-        roomIntegerMap.put(new Room("2", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
-        roomIntegerMap.put(new Room("3", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
-        roomIntegerMap.put(new Room("4", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
-
-    }
+//    static {
+//        roomIntegerMap.put(new Room("1", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
+//        roomIntegerMap.put(new Room("2", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
+//        roomIntegerMap.put(new Room("3", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
+//        roomIntegerMap.put(new Room("4", "ckd", 35, 7000, 2, "ngày", "dọn phòng"), 0);
+//
+//    }
 
 //    @Override
 //    public void add() {
@@ -40,37 +40,65 @@ public class RoomServicesImpl implements FacilityService {
         do {
             System.out.println("Nhập mã dịch vụ: ");
             id = scanner.nextLine();
-        }while (!regex.checkId(id + ""));
+        } while (!Regex.checkId(id));
 
         String nameService;
         do {
             System.out.println("Nhập tên dịch vụ: ");
             nameService = scanner.nextLine();
-        }while (!regex.checkName(nameService));
+        } while (!Regex.checkName(nameService));
 
         double usableArea;
         do {
             System.out.println("Nhập diện tích sử dụng: ");
             usableArea = Double.parseDouble(scanner.nextLine());
-        }while (!regex.checkArea(usableArea + ""));
+        } while (!Regex.checkArea(usableArea + " "));
 
         double rentalCosts;
         do {
             System.out.println("Nhập giá thuê: ");
             rentalCosts = Double.parseDouble(scanner.nextLine());
-        }while (!regex.checkCost(rentalCosts + ""));
+        } while (!Regex.checkCost(rentalCosts + ""));
 
         int maximumPeople;
         do {
             System.out.println("Nhập số người ở tối đa: ");
             maximumPeople = Integer.parseInt(scanner.nextLine());
-        }while (!regex.checkPerson(maximumPeople + ""));
+        } while (!Regex.checkPerson(maximumPeople + ""));
 
-        String rentalType;
+        String rentalType =null;
+        boolean flag ;
         do {
-            System.out.println("Nhập kiểu thuê (giờ, ngày, tháng, năm: ");
-            rentalType = scanner.nextLine();
-        }while (!regex.checkName(rentalType));
+            int choice;
+            System.out.print("1.Giờ\n" +
+                    "2.Ngày\n" +
+                    "3.Tháng\n" +
+                    "4.Năm\n" +
+                    "5.Nhập lựa kiểu thuê: ");
+            choice = Integer.parseInt(scanner.nextLine());
+            switch (choice){
+                case 1:
+                    rentalType= typeRent[0];
+                    flag = true;
+                    break;
+                case 2:
+                    rentalType= typeRent[1];
+                    flag = true;
+                    break;
+                case 3:
+                    rentalType = typeRent[2];
+                    flag = true;
+                    break;
+                case 4:
+                    rentalType = typeRent [3];
+                    flag =true;
+                    break;
+                default:
+                    System.out.println("Nhập sai vui lòng nhập lại");
+                    flag = false;
+                    break;
+            }
+        } while (!flag);
 
         System.out.println("Nhập dịch vụ miễn phí: ");
         String freeService = scanner.nextLine();
