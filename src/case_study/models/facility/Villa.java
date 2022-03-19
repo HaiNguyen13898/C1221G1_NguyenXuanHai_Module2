@@ -55,9 +55,10 @@ public class Villa extends Facility {
                 " }";
     }
 
+
     public String writeFileVilla() {
-        return this.getId() + ", " + this.getNameService() + ", " + this.getUsableArea() + ", " + this.getRentalCosts() +
-                ", " + this.getMaximumPeople() + ", " + this.getRentalType() + ", " + this.getStandardRoom() +
-                ", " + this.getSwimmingPoolArea() + ", " + this.getNumberFloor();
+        return this.getId() + "," + this.getNameService() + "," + this.getUsableArea() + "," + this.getRentalCosts() +
+                "," + this.getMaximumPeople() + "," + this.getRentalType() + "," + this.getStandardRoom() +
+                "," + this.getSwimmingPoolArea() + "," + this.getNumberFloor();
     }
 }

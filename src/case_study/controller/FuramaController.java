@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class FuramaController {
     public void displayMenu()  {
-        int choose1, choose2;
+        int choose1, choose2, choose3;
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         EmployeeServicesImpl employeeServices = new EmployeeServicesImpl();
@@ -27,6 +27,7 @@ public class FuramaController {
                     "5.Promotion Management\n" +
                     "6.Exit\n" +
                     "Enter your choice: ");
+
             choose1 = Integer.parseInt(scanner.nextLine());
             switch (choose1) {
                 case 1:

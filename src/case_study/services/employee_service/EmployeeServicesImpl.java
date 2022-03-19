@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class EmployeeServicesImpl implements EmployeeService {
 
     private static List<Employee> employeeArrayList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
 //    static {
 //        employeeArrayList.add(new Employee(1, "Nguyen Xuan Hai", "13/08/1998", "Nam", "001098001438", "0935264228", "hainguyen13@gmail.com", "trùm", "Trưởng phòng", 65000000));
