@@ -78,7 +78,7 @@ public class CustomerServicesImpl implements CustomerService {
         String address = scanner.nextLine();
         Customer customers = new Customer(id, name, dateBirth, gender, idCard, phoneNumber, email, typeOfGuest, address);
         customerList.add(customers);
-        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", true);
     }
 
     @Override

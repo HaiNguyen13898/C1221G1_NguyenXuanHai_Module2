@@ -103,7 +103,7 @@ public class RoomServicesImpl implements FacilityService {
         String freeService = scanner.nextLine();
         Room rooms = new Room(id, nameService, Double.parseDouble(usableArea), Double.parseDouble(rentalCosts), Integer.parseInt(maximumPeople), rentalType, freeService);
         roomIntegerMap.put(rooms, 0);
-        WriteFileRoom.writeStringListToCSV(roomIntegerMap, "src/case_study/data/room.csv", false);
+        WriteFileRoom.writeStringListToCSV(roomIntegerMap, "src/case_study/data/room.csv", true);
     }
 
 

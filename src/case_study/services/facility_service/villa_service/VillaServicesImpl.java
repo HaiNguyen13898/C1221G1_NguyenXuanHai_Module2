@@ -69,7 +69,7 @@ public class VillaServicesImpl implements FacilityService {
         int numberFloor = Integer.parseInt(scanner.nextLine());
         Villa villas = new Villa(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType, standardVilla, swimmingPoolArea, numberFloor);
         villaIntegerMap.put(villas, 0);
-        WriteFileVilla.writeStringListToCSV(villaIntegerMap, "src/case_study/data/villa.csv", false);
+        WriteFileVilla.writeStringListToCSV(villaIntegerMap, "src/case_study/data/villa.csv", true);
     }
 
     @Override
