@@ -55,9 +55,9 @@ public class Employee extends Person {
     }
 
     public String writeFileEmployee() {
-        return this.getId() + ", " + this.getName() + ", " + this.getDayOfBirth() +
-                ", " + this.getGender() + ", " + this.getIdentityCard() + ", " +
-                this.getPhoneNumber() + ", " + this.getEmail() + ", " + this.getStandard() +
-                ", " + this.getPosition() + ", " + this.getSalary();
+        return this.getId() + "," + this.getName() + "," + this.getDayOfBirth() +
+                "," + this.getGender() + "," + this.getIdentityCard() + "," +
+                this.getPhoneNumber() + "," + this.getEmail() + "," + this.getStandard() +
+                "," + this.getPosition() + "," + this.getSalary();
     }
 }

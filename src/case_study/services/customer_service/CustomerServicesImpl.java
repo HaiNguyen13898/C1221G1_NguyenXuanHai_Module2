@@ -35,7 +35,7 @@ public class CustomerServicesImpl implements CustomerService {
         System.out.print("Nhập địa chỉ email: ");
         String email = scanner.nextLine();
 
-        String typeOfGuest =null;
+        String typeOfGuest = null;
         boolean flag;
         int choice;
         do {
@@ -70,7 +70,7 @@ public class CustomerServicesImpl implements CustomerService {
                 default:
                     System.out.println("Bạn đã nhập sai vui lòng nhập lại");
                     flag = false;
-                    break;
+
             }
         } while (!flag);
 
@@ -78,7 +78,7 @@ public class CustomerServicesImpl implements CustomerService {
         String address = scanner.nextLine();
         Customer customers = new Customer(id, name, dateBirth, gender, idCard, phoneNumber, email, typeOfGuest, address);
         customerList.add(customers);
-        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", true);
+        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
     }
 
     @Override
@@ -91,82 +91,86 @@ public class CustomerServicesImpl implements CustomerService {
 
     @Override
     public void edit() {
+        List<Customer> customerList = ReadFileCustomer.readCustomerFromCSV();
+        Customer customers = null;
         display();
+        int choose;
+        boolean check = true;
         System.out.print("Nhập id thông tin nhân viên bạn cần thay đổi: ");
         int id = Integer.parseInt(scanner.nextLine());
-        int choose;
-        System.out.print("===Change information===\n" +
-                "1.Name\n" +
-                "2.Day of birth\n" +
-                "3.Gender\n" +
-                "4.Identification  \n" +
-                "5.Phone number\n" +
-                "6.Email\n" +
-                "7.TypeOfGuest\n" +
-                "8.Address\n" +
-                "Enter your choice: ");
-        choose = Integer.parseInt(scanner.nextLine());
-        switch (choose) {
-            case 1:
-                System.out.print("Sửa tên: ");
-                String name = scanner.nextLine();
-                customerList.get(id - 1).setName(name);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 2:
-                System.out.print("Sửa ngày tháng năm sinh: ");
-                String dateBirth = scanner.nextLine();
-                customerList.get(id - 1).setDayOfBirth(dateBirth);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 3:
-                System.out.print("Sửa giới tính: ");
-                String gender = scanner.nextLine();
-                customerList.get(id - 1).setGender(gender);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 4:
-                System.out.print("Sửa số CMND: ");
-                String identification = scanner.nextLine();
-                customerList.get(id - 1).setIdentityCard(identification);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 5:
-                System.out.print("Sửa số điện thoại: ");
-                String phoneNumber = scanner.nextLine();
-                customerList.get(id - 1).setPhoneNumber(phoneNumber);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 6:
-                System.out.print("Sửa số email: ");
-                String email = scanner.nextLine();
-                customerList.get(id - 1).setEmail(email);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 7:
-                System.out.print("Sửa loại khách: ");
-                String kinOfCustomer = scanner.nextLine();
-                customerList.get(id - 1).setKindsOfCustomer(kinOfCustomer);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 8:
-                System.out.print("Sửa địa chỉ: ");
-                String address = scanner.nextLine();
-                customerList.get(id - 1).setAddress(address);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
+        for (int i = 0; i < customerList.size(); i++) {
+            if (customerList.get(i).getId() == id) {
+                customers = customerList.get(i);
+                System.out.print("===Change information===\n" +
+                        "1.Name\n" +
+                        "2.Day of birth\n" +
+                        "3.Gender\n" +
+                        "4.Identification  \n" +
+                        "5.Phone number\n" +
+                        "6.Email\n" +
+                        "7.TypeOfGuest\n" +
+                        "8.Address\n" +
+                        "Enter your choice: ");
+                choose = Integer.parseInt(scanner.nextLine());
+                switch (choose) {
+                    case 1:
+                        System.out.print("Sửa tên: ");
+                        String name = scanner.nextLine();
+                        customers.setName(name);
+                        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+                        break;
+                    case 2:
+                        System.out.print("Sửa ngày tháng năm sinh: ");
+                        String dateBirth = scanner.nextLine();
+                        customers.setDayOfBirth(dateBirth);
+                        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+                        break;
+                    case 3:
+                        System.out.print("Sửa giới tính: ");
+                        String gender = scanner.nextLine();
+                        customers.setGender(gender);
+                        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+                        break;
+                    case 4:
+                        System.out.print("Sửa số CMND: ");
+                        String identification = scanner.nextLine();
+                        customers.setIdentityCard(identification);
+                        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+                        break;
+                    case 5:
+                        System.out.print("Sửa số điện thoại: ");
+                        String phoneNumber = scanner.nextLine();
+                        customers.setPhoneNumber(phoneNumber);
+                        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+                        break;
+                    case 6:
+                        System.out.print("Sửa số email: ");
+                        String email = scanner.nextLine();
+                        customers.setEmail(email);
+                        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+                        break;
+                    case 7:
+                        System.out.print("Sửa loại khách: ");
+                        String kinOfCustomer = scanner.nextLine();
+                        customers.setKindsOfCustomer(kinOfCustomer);
+                        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+                        break;
+                    case 8:
+                        System.out.print("Sửa địa chỉ: ");
+                        String address = scanner.nextLine();
+                        customers.setAddress(address);
+                        WriteFileCustomer.writeStringListToCSV(customerList, "src/case_study/data/customer.csv", false);
+                        break;
 
+                }
+                break;
+            }
+            check = false;
+        }
+        if (!check) {
+            System.out.println("KHÔNG TÌM THẤY THÔNG TIN CẦN THAY ĐỔI");
         }
     }
-
     @Override
     public void delete() {
     }

@@ -64,7 +64,7 @@ public class HouseServicesImpl implements FacilityService {
         int numberFloor = Integer.parseInt(scanner.nextLine());
         House houses = new House(id, nameService, usableArea, rentalCosts, maximumPeople, rentalType, standardRoom, numberFloor);
         houseIntegerMap.put(houses, 0);
-        WriteFileHouse.writeStringListToCSV(houseIntegerMap, "src/case_study/data/house.csv", true);
+        WriteFileHouse.writeStringListToCSV(houseIntegerMap, "src/case_study/data/house.csv", false);
     }
 
     @Override

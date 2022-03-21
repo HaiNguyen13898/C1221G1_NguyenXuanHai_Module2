@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class EmployeeServicesImpl implements EmployeeService {
 
-    private static List<Employee> employeeArrayList = new ArrayList<>();
+    private static List<Employee> employeeList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     String[] level = {"Trung cấp", "Cao đẳng", "Đại học", "Sau đại học"};
 
@@ -74,8 +74,8 @@ public class EmployeeServicesImpl implements EmployeeService {
         System.out.print("Nhập mức lương: ");
         double salary = Double.parseDouble(scanner.nextLine());
         Employee employees = new Employee(id, name, dateBirth, gender, idCard, phoneNumber, email, standard, position, salary);
-        employeeArrayList.add(employees);
-        WriteFileEmployee.writeStringListToCSV(employeeArrayList, "src/case_study/data/employee.csv", true);
+        employeeList.add(employees);
+        WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
     }
 
     @Override
@@ -88,91 +88,99 @@ public class EmployeeServicesImpl implements EmployeeService {
 
     @Override
     public void edit() {
+        List<Employee> employeeList = ReadFileEmployee.readEmployeeFromCSV();
         display();
+        Employee employee = null;
         System.out.print("Nhập id thông tin nhân viên bạn cần thay đổi: ");
         int id = Integer.parseInt(scanner.nextLine());
-        int choose;
-        System.out.print("===Change information===\n" +
-                "1.Name\n" +
-                "2.Day of birth\n" +
-                "3.Gender\n" +
-                "4.Identification  \n" +
-                "5.Phone number\n" +
-                "6.Email\n" +
-                "7.Standard\n" +
-                "8.Position\n" +
-                "9.Salary\n" +
-                "Enter your choice: ");
-        choose = Integer.parseInt(scanner.nextLine());
-        switch (choose) {
-            case 1:
-                System.out.print("Sửa tên: ");
-                String name = scanner.nextLine();
-                employeeArrayList.get(id -1).setName(name);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 2:
-                System.out.print("Sửa ngày tháng năm sinh: ");
-                String dateBirth = scanner.nextLine();
-                employeeArrayList.get(id -1).setDayOfBirth(dateBirth);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 3:
-                System.out.print("Sửa giới tính: ");
-                String gender = scanner.nextLine();
-                employeeArrayList.get(id-1).setGender(gender);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 4:
-                System.out.print("Sửa số CMND: ");
-                String identification = scanner.nextLine();
-                employeeArrayList.get(id-1).setIdentityCard(identification);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 5:
-                System.out.print("Sửa số điện thoại: ");
-                String phoneNumber = scanner.nextLine();
-                employeeArrayList.get(id-1).setPhoneNumber(phoneNumber);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 6:
-                System.out.print("Sửa số email: ");
-                String email = scanner.nextLine();
-                employeeArrayList.get(id-1).setEmail(email);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 7:
-                System.out.print("Sửa trình độ: ");
-                String standard = scanner.nextLine();
-                employeeArrayList.get(id-1).setStandard(standard);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 8:
-                System.out.print("Sửa vị trí: ");
-                String position = scanner.nextLine();
-                employeeArrayList.get(id-1).setPosition(position);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
-            case 9:
-                System.out.print("Sửa lương: ");
-                double salary = Double.parseDouble(scanner.nextLine());
-                employeeArrayList.get(id-1).setSalary(salary);
-                System.out.println("Đã sửa thành công!!!");
-                display();
-                break;
+        int choose = 0;
+        boolean check = true;
+            for (int i = 0; i < employeeList.size(); i++) {
+                if (employeeList.get(i).getId() == id) {
+                    employee = employeeList.get(i);
+                    System.out.print("===Change information===\n" +
+                            "1.Name\n" +
+                            "2.Day of birth\n" +
+                            "3.Gender\n" +
+                            "4.Identification  \n" +
+                            "5.Phone number\n" +
+                            "6.Email\n" +
+                            "7.Standard\n" +
+                            "8.Position\n" +
+                            "9.Salary\n" +
+                            "Enter your choice: ");
+                    choose = Integer.parseInt(scanner.nextLine());
+                    switch (choose) {
+                        case 1:
+                            System.out.print("Sửa tên: ");
+                            String name = scanner.nextLine();
+                            employee.setName(name);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+                            break;
+                        case 2:
+                            System.out.print("Sửa ngày tháng năm sinh: ");
+                            String dateBirth = scanner.nextLine();
+                            employee.setDayOfBirth(dateBirth);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+                            break;
+                        case 3:
+                            System.out.print("Sửa giới tính: ");
+                            String gender = scanner.nextLine();
+                            employee.setGender(gender);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+                            break;
+                        case 4:
+                            System.out.print("Sửa số CMND: ");
+                            String identification = scanner.nextLine();
+                            employee.setIdentityCard(identification);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+
+                            break;
+                        case 5:
+                            System.out.print("Sửa số điện thoại: ");
+                            String phoneNumber = scanner.nextLine();
+                            employee.setPhoneNumber(phoneNumber);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+
+                            break;
+                        case 6:
+                            System.out.print("Sửa số email: ");
+                            String email = scanner.nextLine();
+                            employee.setEmail(email);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+
+                            break;
+                        case 7:
+                            System.out.print("Sửa trình độ: ");
+                            String standard = scanner.nextLine();
+                            employee.setStandard(standard);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+
+                            break;
+                        case 8:
+                            System.out.print("Sửa vị trí: ");
+                            String position = scanner.nextLine();
+                            employee.setPosition(position);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+                            break;
+                        case 9:
+                            System.out.print("Sửa lương: ");
+                            double salary = Double.parseDouble(scanner.nextLine());
+                            employee.setSalary(salary);
+                            WriteFileEmployee.writeStringListToCSV(employeeList, "src/case_study/data/employee.csv", false);
+                            break;
+                    }
+                    break;
+                }
+                check = false;
+            }
+            if (!check){
+                System.out.println("KHÔNG TÌM THẤY ID BẠN CẦN THAY ĐỔI");
+            }
+        }
+
+        @Override
+        public void delete () {
+
         }
     }
-
-    @Override
-    public void delete() {
-
-    }
-}
