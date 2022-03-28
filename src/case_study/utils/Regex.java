@@ -11,6 +11,7 @@ public class Regex {
     public static final String REGEX_INT = "^[1-9][0-9]*$";
     public static final String REGEX_PERSON = "^[1-9]|[1][0-9]$";
     static Scanner sc = new Scanner(System.in);
+
     public static String checkRegex(String string, String regex, String err) {
         boolean check = true;
         do {
